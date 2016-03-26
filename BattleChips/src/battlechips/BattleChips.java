@@ -16,6 +16,8 @@ public class BattleChips {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Table t= new Table (t.FÁCIL,new Player());
+        
     }
     
 }
