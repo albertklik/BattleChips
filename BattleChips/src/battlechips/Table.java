@@ -16,7 +16,7 @@ public class Table {
     public static final int FÁCIL = 8;  
     public static final int MÉDIO = 10;  
     public static final int DIFÍCIL = 15;
-    public static final int VERTICAL = 1;
+    public static final int VERTICAL = 2;
     public static final int HORIZONTAL= 1;
     
 
@@ -37,7 +37,7 @@ public class Table {
         } 
         else 
         {
-            System.out.println("ERRO");
+            System.out.println("ERRO, fora do tabuleiro");
         }
         
         
@@ -57,7 +57,7 @@ public class Table {
                         for (int i = y; y<=tipo; y++) {
                             j++;
                             ChipPiece newchip = new ChipPiece(n_pecas,tipo,j);
-                            Casas[x][y] = newchip;
+                            Casas[(x-1)][(y-1)] = newchip;
                         }
                     }
                     else
@@ -72,7 +72,7 @@ public class Table {
                         for (int i = x; x<=tipo; x++) {
                             j++;
                             ChipPiece newchip = new ChipPiece(n_pecas,tipo,j);
-                            Casas[x][y] = newchip;
+                            Casas[(x-1)][(y-1)] = newchip;
                         }
                     }
                     else
@@ -91,7 +91,7 @@ public class Table {
         }
         else 
         {
-            System.out.println("ERRO");
+            System.out.println("ERRO, fora do tabuleiro");
         }
         
     }
@@ -101,9 +101,10 @@ public class Table {
     public boolean espacosVazios(int x, int y, int orientacao, int NdeCasas) {
         boolean result = true;
         
-        if ((x+(NdeCasas-1)>this.dificuldade)||(y+(NdeCasas-1)>this.dificuldade)) //verificando se o chip foge do tabuleiro
+        if ((x+(NdeCasas)>this.dificuldade)||(y+(NdeCasas)>this.dificuldade)) //verificando se o chip foge do tabuleiro
         {
             result = false;
+            System.out.println("Erro - sem espaço");
         } 
         else
         {
@@ -111,7 +112,7 @@ public class Table {
             {
                 case 1 :
                     for (int i = y; y<=NdeCasas; y++) {
-                        if (Casas[x][y]!=null) {
+                        if (Casas[(x-1)][(y-1)]!=null) {
                             result = false;
                             break;
                         }
@@ -120,7 +121,7 @@ public class Table {
                     break;
                 case 2 :
                     for (int i = x; x<=NdeCasas; x++) {
-                        if (Casas[x][y]!=null) {
+                        if (Casas[(x-1)][(y-1)]!=null) {
                             result = false;
                             break;
                         }
@@ -141,7 +142,16 @@ public class Table {
     //MÉTODO DE TESTE
     
     public void imprimeStatus() {
-        
+        for (int i=0; i<dificuldade; i++) {
+            for (int j=0; j<dificuldade; j++) {
+                System.out.print(" | ");
+                if (Casas[i][j]!=null) {
+                    System.out.print(Casas[i][j].getIdent());
+                } else System.out.print(" ");
+                System.out.print(" | ");
+        }
+            System.out.println("");
+        }
     }
     
 }
