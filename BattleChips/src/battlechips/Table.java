@@ -28,12 +28,20 @@ public class Table {
         n_pecas = 0;
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
     public ChipPiece VerificarCasa(int x, int y) {
         ChipPiece chip = null;
         
         if (((0<x)&(x<=this.dificuldade))&((0<y)&(y<=this.dificuldade))) //veirifca se o x e o y esta dentro do tamanho do tabuleiro
         {
-            chip = Casas[x][y];
+            chip = Casas[(x-1)][(y-1)];
         } 
         else 
         {
@@ -99,8 +107,7 @@ public class Table {
     
     //função que recebe posição e orientaçãoe e verifica se existe espaço vazio para a peça
     public boolean espacosVazios(int x, int y, int orientacao, int NdeCasas) {
-        boolean result = true;
-        
+        boolean result = true;     
         switch (orientacao) 
             {
                 case 1 :
@@ -111,12 +118,14 @@ public class Table {
                     }
                     else
                     {
-                    for (int i = y; i<=(y+(NdeCasas-1)); i++) {
-                        if (Casas[(x-1)][(i-1)]!=null) {
-                            result = false;
-                            break;
+                        for (int i = y; i<=(y+(NdeCasas-1)); i++) 
+                        {
+                            if (Casas[(x-1)][(i-1)]!=null) 
+                            {
+                                result = false;
+                                break;
+                            }
                         }
-                    }
                     }
                     break;
                 case 2 :
@@ -127,23 +136,30 @@ public class Table {
                     }
                     else
                     {
-                    for (int i = x; i<=(x+(NdeCasas-1)); i++) {
-                        if (Casas[(i-1)][(y-1)]!=null) {
-                            result = false;
-                            break;
+                        for (int i = x; i<=(x+(NdeCasas-1)); i++) 
+                        {
+                            if (Casas[(i-1)][(y-1)]!=null) 
+                            {
+                                result = false;
+                                break;
+                            }
                         }
-                    }
                     }
                     break;
                 default : 
                     System.out.println("erro: ORIENTAÇÃO DESCONHECIDA");
-                    break;
-                    
-                
+                    break;  
             }
-        
         return result;
     }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -154,7 +170,10 @@ public class Table {
             for (int j=0; j<dificuldade; j++) {
                 System.out.print(" | ");
                 if (Casas[i][j]!=null) {
-                    System.out.print(Casas[i][j].getIdent());
+                    if (Casas[i][j].Iscrashed()) 
+                    {
+                        System.out.print("*");
+                    } else System.out.print(Casas[i][j].getIdent());
                 } else System.out.print(" ");
                 System.out.print(" | ");
         }

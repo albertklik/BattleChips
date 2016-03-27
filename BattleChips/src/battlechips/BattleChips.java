@@ -20,6 +20,10 @@ public class BattleChips {
         t.imprimeStatus();
         System.out.println("");
         t.InserirChip(Table.VERTICAL, 6, 8, ChipPiece.BOTAO);
+        ChipPiece chip = t.VerificarCasa(6, 8);
+        t.imprimeStatus();
+        System.out.println("");
+        chip.crash();
         t.imprimeStatus();
         
        
