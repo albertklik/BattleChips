@@ -54,10 +54,10 @@ public class Table {
                     if (espacosVazios(x,y,orientacao,tipo)) {
                         n_pecas ++;
                         int j = 0;
-                        for (int i = y; y<=tipo; y++) {
+                        for (int i = y; i<=(y+(tipo-1)); i++) {
                             j++;
                             ChipPiece newchip = new ChipPiece(n_pecas,tipo,j);
-                            Casas[(x-1)][(y-1)] = newchip;
+                            Casas[(x-1)][(i-1)] = newchip;
                         }
                     }
                     else
@@ -69,10 +69,10 @@ public class Table {
                     if (espacosVazios(x,y,orientacao,tipo)) {
                         n_pecas ++;
                         int j = 0;
-                        for (int i = x; x<=tipo; x++) {
+                        for (int i = x; i<=(x+(tipo-1)); i++) {
                             j++;
                             ChipPiece newchip = new ChipPiece(n_pecas,tipo,j);
-                            Casas[(x-1)][(y-1)] = newchip;
+                            Casas[(i-1)][(y-1)] = newchip;
                         }
                     }
                     else
@@ -97,34 +97,42 @@ public class Table {
     }
     
     
-    
+    //função recebe posição e orientaçãoe e verifica se existe espaço vazio para a peça
     public boolean espacosVazios(int x, int y, int orientacao, int NdeCasas) {
         boolean result = true;
         
-        if ((x+(NdeCasas)>this.dificuldade)||(y+(NdeCasas)>this.dificuldade)) //verificando se o chip foge do tabuleiro
-        {
-            result = false;
-            System.out.println("Erro - sem espaço");
-        } 
-        else
-        {
         switch (orientacao) 
             {
                 case 1 :
-                    for (int i = y; y<=NdeCasas; y++) {
-                        if (Casas[(x-1)][(y-1)]!=null) {
+                    if (((y+(NdeCasas-1))>this.dificuldade)) 
+                    {
+                        result = false;
+                        System.out.println("Erro - sem espaço");
+                    }
+                    else
+                    {
+                    for (int i = y; i<=(y+(NdeCasas-1)); i++) {
+                        if (Casas[(x-1)][(i-1)]!=null) {
                             result = false;
                             break;
                         }
                     }
-                    
+                    }
                     break;
                 case 2 :
-                    for (int i = x; x<=NdeCasas; x++) {
-                        if (Casas[(x-1)][(y-1)]!=null) {
+                    if (((x+(NdeCasas-1))>this.dificuldade)) 
+                    {
+                        result = false;
+                        System.out.println("Erro - sem espaço");
+                    }
+                    else
+                    {
+                    for (int i = x; i<=(x+(NdeCasas-1)); i++) {
+                        if (Casas[(i-1)][(y-1)]!=null) {
                             result = false;
                             break;
                         }
+                    }
                     }
                     break;
                 default : 
@@ -133,7 +141,7 @@ public class Table {
                     
                 
             }
-        }
+        
         return result;
     }
     

@@ -16,8 +16,13 @@ public class BattleChips {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Table t= new Table (t.FÁCIL,new Player());
+        Table t= new Table (Table.FÁCIL,new Player());
+        t.imprimeStatus();
+        System.out.println("");
+        t.InserirChip(Table.VERTICAL, 1, 8, ChipPiece.MICRO);
+        t.imprimeStatus();
         
+       
     }
     
 }
