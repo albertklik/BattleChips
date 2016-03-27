@@ -19,7 +19,7 @@ public class BattleChips {
         Table t= new Table (Table.FÁCIL,new Player());
         t.imprimeStatus();
         System.out.println("");
-        t.InserirChip(Table.VERTICAL, 1, 8, ChipPiece.MICRO);
+        t.InserirChip(Table.VERTICAL, 6, 8, ChipPiece.BOTAO);
         t.imprimeStatus();
         
        

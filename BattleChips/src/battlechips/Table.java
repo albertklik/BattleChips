@@ -97,7 +97,7 @@ public class Table {
     }
     
     
-    //função recebe posição e orientaçãoe e verifica se existe espaço vazio para a peça
+    //função que recebe posição e orientaçãoe e verifica se existe espaço vazio para a peça
     public boolean espacosVazios(int x, int y, int orientacao, int NdeCasas) {
         boolean result = true;
         
