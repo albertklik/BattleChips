@@ -9,33 +9,32 @@ package battlechips;
  */
 public class Table {
     
-    private ChipPiece [][]Casas;
-    private int dificuldade;
-    private int n_pecas;
+    private final ChipPiece [][]Casas;
+    private final Chip []Chips;
+    private final int dificuldade;
+    private int n_chips;
     private Player Jogador;
+    
+    
     public static final int FÁCIL = 8;  
     public static final int MÉDIO = 10;  
     public static final int DIFÍCIL = 15;
+    
     public static final int VERTICAL = 2;
     public static final int HORIZONTAL= 1;
     
-
+    //MÉTODO CONSTRUTOR
     public Table (int dificuldade,Player jogador) {
         //cria o tabuleiro com o tamanho de acordo com a dificuldade
         Casas = new ChipPiece[dificuldade][dificuldade];
+        Chips = new Chip[50];
         this.dificuldade = dificuldade;
-        this.Jogador = Jogador;
-        n_pecas = 0;
+        this.Jogador = jogador;                   //jogado associado ao tabuleiro
+        n_chips = 0;
     }
     
     
-    
-    
-    
-    
-    
-    
-    
+    //Verifica a casa e retorna um pedaço de Chip
     public ChipPiece VerificarCasa(int x, int y) {
         ChipPiece chip = null;
         
@@ -48,11 +47,11 @@ public class Table {
             System.out.println("ERRO, fora do tabuleiro");
         }
         
-        
-        
         return chip;
     }
     
+    
+    //insere um chipPiece no tabuleiro
     public void InserirChip(int orientacao, int x, int y,int tipo) {
         if (((0<x)&(x<=this.dificuldade))&((0<y)&(y<=this.dificuldade)))
         {
@@ -60,11 +59,14 @@ public class Table {
             {
                 case 1 :
                     if (espacosVazios(x,y,orientacao,tipo)) {
-                        n_pecas ++;
+                        n_chips ++;
                         int j = 0;
+                        Chip chip = new Chip(tipo,n_chips);
+                        Chips[n_chips-1] = chip;
                         for (int i = y; i<=(y+(tipo-1)); i++) {
                             j++;
-                            ChipPiece newchip = new ChipPiece(n_pecas,tipo,j);
+                            ChipPiece newchip = new ChipPiece(chip,j);
+                            chip.addPiece(newchip, newchip.getpedaço());
                             Casas[(x-1)][(i-1)] = newchip;
                         }
                     }
@@ -75,11 +77,14 @@ public class Table {
                     break;
                 case 2 :
                     if (espacosVazios(x,y,orientacao,tipo)) {
-                        n_pecas ++;
+                        n_chips ++;
                         int j = 0;
+                        Chip chip = new Chip(tipo,n_chips);
+                        Chips[n_chips-1] = chip;
                         for (int i = x; i<=(x+(tipo-1)); i++) {
                             j++;
-                            ChipPiece newchip = new ChipPiece(n_pecas,tipo,j);
+                            ChipPiece newchip = new ChipPiece(chip,j);
+                            chip.addPiece(newchip, newchip.getpedaço());
                             Casas[(i-1)][(y-1)] = newchip;
                         }
                     }
@@ -155,30 +160,69 @@ public class Table {
     
     
     
+    //méotodo retorna o numero de peças quebradas
+    public int chipsCrashed() {
+        int soma = 0;
+        for (int i = 0; i<n_chips; i++) {
+            if (Chips[i].checkCrached()) {
+                soma++;
+            }
+        }
+        return soma;
+    }
     
-    
-    
-    
-    
-    
-    
+ 
     
     //MÉTODO DE TESTE
-    
+    //imprime no console informações sobre o status do tabuleiro
     public void imprimeStatus() {
+        System.out.println("----------------------TABULEIRO-----------------------");
         for (int i=0; i<dificuldade; i++) {
             for (int j=0; j<dificuldade; j++) {
-                System.out.print(" | ");
+                System.out.print("[");
                 if (Casas[i][j]!=null) {
                     if (Casas[i][j].Iscrashed()) 
                     {
                         System.out.print("*");
                     } else System.out.print(Casas[i][j].getIdent());
                 } else System.out.print(" ");
-                System.out.print(" | ");
+                System.out.print("]");
         }
             System.out.println("");
         }
+        System.out.println("------------------------------------------------------");
+        System.out.println("");
+        System.out.println("Numero de peças Adicionadas: " + n_chips);
+        System.out.println("Numero de peças quebradas: " + chipsCrashed());
+        for (int i = 0; i<n_chips; i++) {
+            System.out.print("Chip [" + (i+1) + "] ");
+            System.out.print ("  Tipo: ");
+            switch (Chips[i].getTipo()) {
+                case 1: 
+                    System.out.print("Botão           ");
+                    break;
+                case 2:
+                    System.out.print("Resistor        ");
+                    break;
+                case 3:
+                    System.out.print("Decodificador   ");
+                    break; 
+                case 4:
+                    System.out.print("Microprocessador");
+                    break;
+            
+            }
+            
+            System.out.print(" Status:");
+            
+            if (Chips[i].checkCrached()) {
+                System.out.println("Quebrado");
+            } 
+            else
+            {
+                System.out.println(" " + Chips[i].NumCrashed() + " Peças quebradas.");
+            }
+        }
     }
-    
+  
 }
