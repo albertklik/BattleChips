@@ -9,16 +9,16 @@ package battlechips;
  */
 public class Table {
     
-    private final ChipPiece [][]Casas;
+    private final Block [][]Casas;
     private final Chip []Chips;
     private final int dificuldade;
     private int n_chips;
     private Player Jogador;
     
     
-    public static final int FÁCIL = 8;  
-    public static final int MÉDIO = 10;  
-    public static final int DIFÍCIL = 15;
+    public static final int FACIL = 8;  
+    public static final int MEDIO = 10;  
+    public static final int DIFICIL = 15;
     
     public static final int VERTICAL = 2;
     public static final int HORIZONTAL= 1;
@@ -26,7 +26,14 @@ public class Table {
     //MÉTODO CONSTRUTOR
     public Table (int dificuldade,Player jogador) {
         //cria o tabuleiro com o tamanho de acordo com a dificuldade
-        Casas = new ChipPiece[dificuldade][dificuldade];
+        Casas = new Block[dificuldade][dificuldade];
+        //preencher a matriz com objetos blocs
+        for (int i=1; i<=dificuldade; i++) {
+            for (int j=1; j<=dificuldade; j++) {
+                Casas[(i-1)][(j-1)] = new Block(i,j);
+            }
+        }
+        
         Chips = new Chip[50];
         this.dificuldade = dificuldade;
         this.Jogador = jogador;                   //jogado associado ao tabuleiro
@@ -34,28 +41,25 @@ public class Table {
     }
     
     
-    //Verifica a casa e retorna um pedaço de Chip
-    public ChipPiece VerificarCasa(int x, int y) {
-        ChipPiece chip = null;
-        
+    //Verifica a casa e retorna um Bloco
+    public Block VerificarBloco(int x, int y) {
+        Block B = null;
         if (((0<x)&(x<=this.dificuldade))&((0<y)&(y<=this.dificuldade))) //veirifca se o x e o y esta dentro do tamanho do tabuleiro
         {
-            chip = Casas[(x-1)][(y-1)];
+            B = Casas[(x-1)][(y-1)];
         } 
         else 
         {
-            System.out.println("ERRO, fora do tabuleiro");
+            System.out.println("ERRO, Bloco fora do tabuleiro");
         }
         
-        return chip;
+        return B;
     }
     
     
     //insere um chipPiece no tabuleiro
     public void InserirChip(int orientacao, int x, int y,int tipo) {
-        if (((0<x)&(x<=this.dificuldade))&((0<y)&(y<=this.dificuldade)))
-        {
-            switch (orientacao) 
+        switch (orientacao) 
             {
                 case 1 :
                     if (espacosVazios(x,y,orientacao,tipo)) {
@@ -67,7 +71,7 @@ public class Table {
                             j++;
                             ChipPiece newchip = new ChipPiece(chip,j);
                             chip.addPiece(newchip, newchip.getpedaço());
-                            Casas[(x-1)][(i-1)] = newchip;
+                            VerificarBloco(x,i).SetChipPiece(newchip);
                         }
                     }
                     else
@@ -85,7 +89,7 @@ public class Table {
                             j++;
                             ChipPiece newchip = new ChipPiece(chip,j);
                             chip.addPiece(newchip, newchip.getpedaço());
-                            Casas[(i-1)][(y-1)] = newchip;
+                            VerificarBloco(i,y).SetChipPiece(newchip);
                         }
                     }
                     else
@@ -98,15 +102,7 @@ public class Table {
                     break;
                     
                 
-            }
-            
-            
-        }
-        else 
-        {
-            System.out.println("ERRO, fora do tabuleiro");
-        }
-        
+            }      
     }
     
     
@@ -125,7 +121,7 @@ public class Table {
                     {
                         for (int i = y; i<=(y+(NdeCasas-1)); i++) 
                         {
-                            if (Casas[(x-1)][(i-1)]!=null) 
+                            if (Casas[(x-1)][(i-1)].getChipPiece()!=null) 
                             {
                                 result = false;
                                 break;
@@ -143,7 +139,7 @@ public class Table {
                     {
                         for (int i = x; i<=(x+(NdeCasas-1)); i++) 
                         {
-                            if (Casas[(i-1)][(y-1)]!=null) 
+                            if (Casas[(i-1)][(y-1)].getChipPiece()!=null) 
                             {
                                 result = false;
                                 break;
@@ -171,7 +167,23 @@ public class Table {
         return soma;
     }
     
- 
+    //retorna o numero de Chips
+    public int getNChips() {
+        return n_chips;
+    }
+    
+    //fazer um tiro em uma posição x,y
+    public void Shoot(int x, int y) {
+        Block b = VerificarBloco(x, y);
+        if (b.IsShot()) {
+            System.out.println("Erro: bloco já atirado");
+        } else  VerificarBloco(x, y).setShot();
+    }
+
+    
+    
+    
+    
     
     //MÉTODO DE TESTE
     //imprime no console informações sobre o status do tabuleiro
@@ -180,12 +192,17 @@ public class Table {
         for (int i=0; i<dificuldade; i++) {
             for (int j=0; j<dificuldade; j++) {
                 System.out.print("[");
-                if (Casas[i][j]!=null) {
-                    if (Casas[i][j].Iscrashed()) 
+                
+                if (Casas[i][j].getChipPiece()!=null) {
+                    if (Casas[i][j].getChipPiece().Iscrashed()) 
                     {
                         System.out.print("*");
-                    } else System.out.print(Casas[i][j].getIdent());
-                } else System.out.print(" ");
+                    } else System.out.print(" ");
+                } else {
+                    if (Casas[i][j].IsShot()) {
+                        System.out.print("O");
+                 } else System.out.print(" ");
+                }
                 System.out.print("]");
         }
             System.out.println("");
@@ -225,4 +242,11 @@ public class Table {
         }
     }
   
+
+
+//retorna posição aleatória dentro do tabuleiro
+public int getRandomPosition() {
+  return (int) ((Math.random() * (dificuldade))+1);
+}
+
 }
