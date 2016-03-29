@@ -16,6 +16,9 @@ public class BattleChips {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Table_test t = new Table_test(Table.FACIL);
+        t.prepararJogo();
+        t.iniciarJogo();
     }
     
 }

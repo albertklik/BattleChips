@@ -180,17 +180,35 @@ public class Table {
         } else  VerificarBloco(x, y).setShot();
     }
 
-    
-    
-    
-    
-    
-    //MÉTODO DE TESTE
+  
+
+//retorna posição aleatória dentro do tabuleiro
+public int getRandomPosition() {
+  return (int) ((Math.random() * (dificuldade))+1);
+}
+
+public int getRandomOrientation () {
+    return (int) (((Math.random() * 2)+1));
+}
+
+
+
+
+//MÉTODO DE TESTE
     //imprime no console informações sobre o status do tabuleiro
     public void imprimeStatus() {
         System.out.println("----------------------TABULEIRO-----------------------");
+        System.out.print("[ ]");
         for (int i=0; i<dificuldade; i++) {
+            
+            System.out.print("["+(i+1)+"]");}
+        System.out.println("");
+        
+        for (int i=0; i<dificuldade; i++) {
+            
+            System.out.print("["+(i+1)+"]");
             for (int j=0; j<dificuldade; j++) {
+                
                 System.out.print("[");
                 
                 if (Casas[i][j].getChipPiece()!=null) {
@@ -241,12 +259,5 @@ public class Table {
             }
         }
     }
-  
-
-
-//retorna posição aleatória dentro do tabuleiro
-public int getRandomPosition() {
-  return (int) ((Math.random() * (dificuldade))+1);
-}
-
+    
 }
