@@ -175,14 +175,15 @@ public class Table {
     public void Shoot(int x, int y) {
         Block b = VerificarBloco(x, y);
         if (b.IsShot()) {
-            System.out.println("Erro: bloco já atirado");
+            System.out.println("Erro: bloco já atacado");
         } else  VerificarBloco(x, y).setShot();
     }
 
   
 
 //retorna posição aleatória dentro do tabuleiro
-public int getRandomPosition() {
+public int getRandomPosition() 
+{
   return (int) ((Math.random() * (dificuldade))+1);
 }
 

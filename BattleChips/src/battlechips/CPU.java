@@ -5,14 +5,26 @@
  */
 package battlechips;
 
-/**
- *
- * @author paulo
- */
-public class CPU extends Player {
+import java.util.Random;
 
-    public CPU(String nome, int dificuldade) {
+
+public class CPU extends Player 
+{
+int dificuldade;
+    public CPU(String nome, int dificuldade) 
+    {
         super(nome, dificuldade);
+        this.dificuldade = dificuldade;
     }
     
+    Table tabuleiro = new Table(dificuldade);
+    Random rand = new Random();
+ 
+    //Vai atirar aleatoriamente no tabuleiro
+    boolean hunt()
+    {
+       tabuleiro.Shoot(rand.nextInt(dificuldade), rand.nextInt(dificuldade));
+        
+    //Return true se acertar; false se errar.    
+    }
 }
