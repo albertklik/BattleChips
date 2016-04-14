@@ -10,13 +10,18 @@ package battlechips;
  * @author paulo
  */
 public class Game_controler {
-    
-    private Table tabuleiro1;
-    private Table tabuleiro2;
-    
+   
+    //modos de jogo
     
     
-    public void PrepararJogo() {
+    private Player jog1;
+    private Player jog2;
+    private boolean JogoPronto;
+    private boolean PartidaIniciada;
+    private int dificuldade;
+    
+    
+    public Game_controler(int dificuldade) {
         
     }
     

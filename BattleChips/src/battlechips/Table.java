@@ -24,7 +24,7 @@ public class Table {
     public static final int HORIZONTAL= 1;
     
     //MÉTODO CONSTRUTOR
-    public Table (int dificuldade,Player jogador) {
+    public Table (int dificuldade) {
         //cria o tabuleiro com o tamanho de acordo com a dificuldade
         Casas = new Block[dificuldade][dificuldade];
         //preencher a matriz com objetos blocs
@@ -36,7 +36,6 @@ public class Table {
         
         Chips = new Chip[50];
         this.dificuldade = dificuldade;
-        this.Jogador = jogador;                   //jogado associado ao tabuleiro
         n_chips = 0;
     }
     

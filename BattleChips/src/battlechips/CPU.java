@@ -10,5 +10,9 @@ package battlechips;
  * @author paulo
  */
 public class CPU extends Player {
+
+    public CPU(String nome, int dificuldade) {
+        super(nome, dificuldade);
+    }
     
 }
