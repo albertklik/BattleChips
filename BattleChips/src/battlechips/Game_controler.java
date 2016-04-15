@@ -17,13 +17,18 @@ public class Game_controler {
     private Player jog1;
     private CPU cpu;
     private boolean PartidaIniciada;
+    private Player winner;
     private Dificuldade Dificuldade;
+    boolean vez;
     
     
     public Game_controler(Dificuldade dif) {
+        
     this.Dificuldade = dif;
-    jog1 = new Player("player1",Dificuldade);
-    cpu = new CPU("CPU",Dificuldade);
+    
+    System.out.println(Dificuldade.N_CHIPS);
+    jog1 = new Player(1,Dificuldade);
+    cpu = new CPU(2,Dificuldade);
     PartidaIniciada = false;
     
     cpu.PosicionarChips();
@@ -32,8 +37,21 @@ public class Game_controler {
   
     }
     
+    public Player GetPlayer(int player) {
+        if (player==1) {
+            return jog1;
+        } else return cpu;
+    }
+    
      
     public boolean setChipPlayer(int x,int y,int orientação,int tipoChip) {
+      
+      if (jog1.ChipsProntos()) 
+      {
+          System.out.println("o jogador ja posicionou todos os seus chips");
+          return false;
+      } else 
+      {
       if (jog1.getTable().VerificarBloco(x, y).getChipPiece()!=null) {
           return false;
       }
@@ -43,28 +61,57 @@ public class Game_controler {
           return true;
       }
         
-        
+      }  
     } 
     
     
-   /* public boolean Shoot (int x,int y, Player p) {
-        
-        if () {
-            return jog1.getTable().Shoot(x, y);      
+   public boolean Shoot (int x,int y,int player)
+   {       
+       boolean acerto;
+       if (PartidaIniciada==true) {
+        if (player==1) {
+            acerto = jog1.MakeShoot(x, y, cpu.getTable());      
         } else
         {
-            return cpu.getTable().Shoot(x, y);
+            acerto = cpu.hunt(jog1.getTable());
         } 
-    }*/
+       }
+       else 
+       {
+           System.out.println("erro, partida não inciada");
+           return false;
+       }
+       
+       ChecarFimDeJogo();
+       return acerto;
+       
+       }
     
     
+   public boolean ChecarFimDeJogo() {
+       boolean fimDeJogo = false;
+       if (jog1.getTable().chipsCrashed()>=jog1.getTable().getNChips()) {
+           winner = cpu;
+           fimDeJogo = true;
+           PartidaIniciada = false;
+       }
+       if (cpu.getTable().chipsCrashed()>=cpu.getTable().getNChips()) {
+           winner = jog1;
+           fimDeJogo = true;
+           PartidaIniciada = false;
+       }
+       return fimDeJogo;
+   } 
     
-    
+   
+   
     public void IiciarJogo() 
     {
-        if (jog1.ChipsProntos()) {
+        if (jog1.ChipsProntos()&cpu.ChipsProntos()) {
             PartidaIniciada = true;
-        }
+            System.out.println("jogo inciado");
+        }else
+            System.out.println("jogadores não estão prontos");
         
         
     }

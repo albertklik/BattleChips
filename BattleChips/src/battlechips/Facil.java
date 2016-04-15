@@ -13,13 +13,14 @@ public class Facil extends Dificuldade {
     
     public Facil () {
        
-        DIFICULDADE = 1;
-        TABSIZE = 8;
-        N_CHIPS = N_CHIP1 + N_CHIP2 + N_CHIP3 + N_CHIP4;
-        N_CHIP1 = 1;
-        N_CHIP2 = 2;
-        N_CHIP3 = 2;
-        N_CHIP4 = 2;
+        super.DIFICULDADE = 1;
+        super.TABSIZE = 8;
+        super.N_CHIP1 = 1;
+        super.N_CHIP2 = 2;
+        super.N_CHIP3 = 2;
+        super.N_CHIP4 = 2;
+        super.N_CHIPS = super.N_CHIP1 + super.N_CHIP2 + super.N_CHIP3 + super.N_CHIP4;
+
         
        
         

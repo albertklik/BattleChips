@@ -11,27 +11,35 @@ package battlechips;
  */
 public class Player {
     
-    private String nome;
+    private int ID;
     private int pontos;
     
     private Table TabJogador; //tabuleiro do jogador
     
-    private Dificuldade dificuldade;
+    protected Dificuldade dificuldade;
     private int acertos;
     
     
     
     
-    public Player (String nome,Dificuldade dificuldade) {
-        this.nome = nome;
-        TabJogador = new Table(dificuldade);
+    public Player (int ID,Dificuldade dif) {
+        this.ID = ID;
+        dificuldade = dif;
+        TabJogador = new Table(dif);
     }
     
-    /*
-    //jogador faz um tiro no tabuleiro do adversario
-    public MakeShoot (int x,int y) {
+    
+    public int getID() {
+        return ID;
+    }
+    
+    
+    public boolean MakeShoot (int x,int y, Table adTable) {
+         
+        boolean acerto = adTable.Shoot(x, y);
         
-    }*/
+        return acerto;
+    }
 
 
     //pegar o tabuleiro do jogador (ele da pra todos, é publico)
@@ -41,6 +49,7 @@ public class Player {
     
     
     public boolean ChipsProntos() {
+        
         if (TabJogador.getNChips()==dificuldade.N_CHIPS) {
             return true;
         } else

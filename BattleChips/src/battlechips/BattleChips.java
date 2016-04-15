@@ -16,9 +16,24 @@ public class BattleChips {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Table_test t = new Table_test(Table.FACIL);
-        t.prepararJogo();
-        t.iniciarJogo();
+        Dificuldade d = new Normal();
+        
+                Game_controler g = new Game_controler(d);
+        g.IiciarJogo();
+        g.GetPlayer(1).getTable().imprimeStatus();
+        g.GetPlayer(2).getTable().imprimeStatus();
+        
+        Player p = g.GetPlayer(1);
+        while (!p.ChipsProntos()) {
+            g.setChipPlayer(p.getTable().getRandomPosition(), p.getTable().getRandomPosition(), 
+                    p.getTable().getRandomOrientation(), 4);
+        }
+        
+        
+        g.GetPlayer(1).getTable().imprimeStatus();
+        g.GetPlayer(2).getTable().imprimeStatus();
+            
+        
     }
     
 }

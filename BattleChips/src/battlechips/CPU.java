@@ -10,25 +10,28 @@ import java.util.Random;
 
 public class CPU extends Player 
 {
-Dificuldade dificuldade;
-    public CPU(String nome, Dificuldade dificuldade) 
+
+
+    public CPU(int id, Dificuldade dificuldade) 
     {
-        super(nome, dificuldade);
-        this.dificuldade = dificuldade;
+        super(id, dificuldade);
     }
     
-    Table tabuleiro = new Table(dificuldade);
-    Random rand = new Random();
+    Table tabuleiro = new Table(super.dificuldade);
+    
  
-    //Vai atirar aleatoriamente no tabuleiro
-    boolean hunt()
+    public boolean hunt(Table adTable)
     {
-       tabuleiro.Shoot(tabuleiro.getRandomPosition(), tabuleiro.getRandomPosition());
-       
+       boolean acerto = adTable.Shoot(tabuleiro.getRandomPosition(), tabuleiro.getRandomPosition());
+       return acerto;
     //Return true se acertar; false se errar.    
     }
     
     public void PosicionarChips() {
+        
+        //adicionar peças no tabuleiro;
+        super.getTable().InserirChip(0, 0, 0, 0);
+        
         
     }
 }

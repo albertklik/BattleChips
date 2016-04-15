@@ -15,12 +15,11 @@ public class Normal extends Dificuldade {
         
         DIFICULDADE = 2;
         TABSIZE = 10;
-        N_CHIPS = N_CHIP1 + N_CHIP2 + N_CHIP3 + N_CHIP4;
         N_CHIP1 = 3;
         N_CHIP2 = 5;
         N_CHIP3 = 1;
         N_CHIP4 = 2;
-        
+        N_CHIPS = N_CHIP1 + N_CHIP2 + N_CHIP3 + N_CHIP4;
         
         
     }
