@@ -16,19 +16,35 @@ public class Player {
     
     private Table TabJogador; //tabuleiro do jogador
     
-    private int dificuldade;
+    private Dificuldade dificuldade;
     private int acertos;
     
     
-    public Player (String nome,int dificuldade) {
+    
+    
+    public Player (String nome,Dificuldade dificuldade) {
         this.nome = nome;
         TabJogador = new Table(dificuldade);
     }
     
+    /*
+    //jogador faz um tiro no tabuleiro do adversario
+    public MakeShoot (int x,int y) {
+        
+    }*/
+
+
     //pegar o tabuleiro do jogador (ele da pra todos, é publico)
     public Table getTable() {
         return this.TabJogador;
     }
     
+    
+    public boolean ChipsProntos() {
+        if (TabJogador.getNChips()==dificuldade.N_CHIPS) {
+            return true;
+        } else
+            return false;
+    }
     
 }

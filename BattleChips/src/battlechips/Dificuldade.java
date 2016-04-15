@@ -11,9 +11,23 @@ package battlechips;
  */
 public abstract class Dificuldade {
     
-    static int DIFICULDADE;
+    public static Dificuldade FACIL = new Facil();
+    public static Dificuldade NORMAL = new Normal();
+    public static Dificuldade DIFICIL = new Dificil();
     
-    static int TABSIZE;
+    
+    public int DIFICULDADE;
+    public int TABSIZE;
+    public int N_CHIPS;
+    public int N_CHIP1;
+    public int N_CHIP2;
+    public int N_CHIP3;
+    public int N_CHIP4;
+    
+    
+   
+
+    
     
     
 }

@@ -11,7 +11,7 @@ public class Table {
     
     private final Block [][]Casas;
     private final Chip []Chips;
-    private final int dificuldade;
+    private final Dificuldade dificuldade;
     private int n_chips;
     private Player Jogador;
     
@@ -24,18 +24,19 @@ public class Table {
     public static final int HORIZONTAL= 1;
     
     //MÉTODO CONSTRUTOR
-    public Table (int dificuldade) {
+    public Table (Dificuldade dif) {
+        dificuldade = dif;
         //cria o tabuleiro com o tamanho de acordo com a dificuldade
-        Casas = new Block[dificuldade][dificuldade];
+        Casas = new Block[dificuldade.TABSIZE][dificuldade.TABSIZE];
         //preencher a matriz com objetos blocs
-        for (int i=1; i<=dificuldade; i++) {
-            for (int j=1; j<=dificuldade; j++) {
+        for (int i=1; i<=dificuldade.TABSIZE; i++) {
+            for (int j=1; j<=dificuldade.TABSIZE; j++) {
                 Casas[(i-1)][(j-1)] = new Block(i,j);
             }
         }
         
         Chips = new Chip[50];
-        this.dificuldade = dificuldade;
+        
         n_chips = 0;
     }
     
@@ -43,7 +44,7 @@ public class Table {
     //Verifica a casa e retorna um Bloco
     public Block VerificarBloco(int x, int y) {
         Block B = null;
-        if (((0<x)&(x<=this.dificuldade))&((0<y)&(y<=this.dificuldade))) //veirifca se o x e o y esta dentro do tamanho do tabuleiro
+        if (((0<x)&(x<=this.dificuldade.TABSIZE))&((0<y)&(y<=this.dificuldade.TABSIZE))) //veirifca se o x e o y esta dentro do tamanho do tabuleiro
         {
             B = Casas[(x-1)][(y-1)];
         } 
@@ -111,7 +112,7 @@ public class Table {
         switch (orientacao) 
             {
                 case 1 :
-                    if (((y+(NdeCasas-1))>this.dificuldade)) 
+                    if (((y+(NdeCasas-1))>this.dificuldade.TABSIZE)) 
                     {
                         result = false;
                         System.out.println("Erro - sem espaço");
@@ -129,7 +130,7 @@ public class Table {
                     }
                     break;
                 case 2 :
-                    if (((x+(NdeCasas-1))>this.dificuldade)) 
+                    if (((x+(NdeCasas-1))>this.dificuldade.TABSIZE)) 
                     {
                         result = false;
                         System.out.println("Erro - sem espaço");
@@ -172,11 +173,21 @@ public class Table {
     }
     
     //fazer um tiro em uma posição x,y
-    public void Shoot(int x, int y) {
+    public boolean Shoot(int x, int y) {
         Block b = VerificarBloco(x, y);
-        if (b.IsShot()) {
-            System.out.println("Erro: bloco já atacado");
-        } else  VerificarBloco(x, y).setShot();
+        if (b.IsShot()) 
+        {
+            System.out.println("Erro: bloco já atacado"); //mudar de mensagem para retorno;
+            return false;
+        } 
+        else  
+            {
+                VerificarBloco(x, y).setShot();
+                
+                return VerificarBloco(x, y).getChipPiece()!=null;
+            }
+        
+ 
     }
 
   
@@ -184,7 +195,7 @@ public class Table {
 //retorna posição aleatória dentro do tabuleiro
 public int getRandomPosition() 
 {
-  return (int) ((Math.random() * (dificuldade))+1);
+  return (int) ((Math.random() * (dificuldade.TABSIZE))+1);
 }
 
 public int getRandomOrientation () {
@@ -199,15 +210,15 @@ public int getRandomOrientation () {
     public void imprimeStatus() {
         System.out.println("----------------------TABULEIRO-----------------------");
         System.out.print("[ ]");
-        for (int i=0; i<dificuldade; i++) {
+        for (int i=0; i<dificuldade.TABSIZE; i++) {
             
             System.out.print("["+(i+1)+"]");}
         System.out.println("");
         
-        for (int i=0; i<dificuldade; i++) {
+        for (int i=0; i<dificuldade.TABSIZE; i++) {
             
             System.out.print("["+(i+1)+"]");
-            for (int j=0; j<dificuldade; j++) {
+            for (int j=0; j<dificuldade.TABSIZE; j++) {
                 
                 System.out.print("[");
                 
@@ -219,6 +230,7 @@ public int getRandomOrientation () {
                 } else {
                     if (Casas[i][j].IsShot()) {
                         System.out.print("O");
+                        
                  } else System.out.print(" ");
                 }
                 System.out.print("]");

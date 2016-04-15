@@ -25,7 +25,8 @@ public class Block {
     }
     
     
-    public void setShot() {
+    public void setShot() 
+    {
         Shot=true;
         if (Chip!=null){
             Chip.crash();
