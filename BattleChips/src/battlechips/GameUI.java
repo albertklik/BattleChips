@@ -51,16 +51,12 @@ public class GameUI extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         jFrame1.setTitle("Settings");
-        jFrame1.setMaximumSize(new java.awt.Dimension(400, 300));
         jFrame1.setMinimumSize(new java.awt.Dimension(400, 300));
         jFrame1.setResizable(false);
 
         jPanel3.setBackground(new java.awt.Color(59, 174, 14));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Settings_img.png"))); // NOI18N
-        jLabel2.setMaximumSize(new java.awt.Dimension(175, 42));
-        jLabel2.setMinimumSize(new java.awt.Dimension(175, 42));
-        jLabel2.setPreferredSize(new java.awt.Dimension(175, 42));
 
         jLabel4.setFont(new java.awt.Font("Adobe Garamond Pro Bold", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,7 +67,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton4.setMaximumSize(new java.awt.Dimension(219, 39));
         jButton4.setMinimumSize(new java.awt.Dimension(219, 39));
         jButton4.setPreferredSize(new java.awt.Dimension(219, 39));
@@ -86,7 +82,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton5.setMaximumSize(new java.awt.Dimension(219, 39));
         jButton5.setMinimumSize(new java.awt.Dimension(219, 39));
         jButton5.setPreferredSize(new java.awt.Dimension(219, 39));
@@ -101,7 +97,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton6.setMaximumSize(new java.awt.Dimension(219, 39));
         jButton6.setMinimumSize(new java.awt.Dimension(219, 39));
         jButton6.setPreferredSize(new java.awt.Dimension(219, 39));
@@ -116,7 +112,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton7.setMaximumSize(new java.awt.Dimension(219, 39));
         jButton7.setMinimumSize(new java.awt.Dimension(219, 39));
         jButton7.setPreferredSize(new java.awt.Dimension(219, 39));
@@ -131,7 +127,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton8.setBorderPainted(false);
         jButton8.setContentAreaFilled(false);
-        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton8.setMaximumSize(new java.awt.Dimension(219, 39));
         jButton8.setMinimumSize(new java.awt.Dimension(219, 39));
         jButton8.setPreferredSize(new java.awt.Dimension(219, 39));
@@ -222,7 +218,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.setMaximumSize(new java.awt.Dimension(219, 39));
         jButton1.setMinimumSize(new java.awt.Dimension(219, 39));
         jButton1.setPreferredSize(new java.awt.Dimension(219, 39));
@@ -237,7 +233,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.setMaximumSize(new java.awt.Dimension(219, 39));
         jButton2.setMinimumSize(new java.awt.Dimension(219, 39));
         jButton2.setPreferredSize(new java.awt.Dimension(219, 39));
@@ -252,7 +248,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton3.setMaximumSize(new java.awt.Dimension(219, 39));
         jButton3.setMinimumSize(new java.awt.Dimension(219, 39));
         jButton3.setPreferredSize(new java.awt.Dimension(219, 39));

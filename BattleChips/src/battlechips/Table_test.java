@@ -15,7 +15,7 @@ public class Table_test {
     
     
     public Table_test(int dificuldade) {
-     t = new Table(dificuldade);
+     t = new Table(Dificuldade.FACIL);
      
     }
     
