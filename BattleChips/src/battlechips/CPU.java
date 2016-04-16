@@ -72,7 +72,7 @@ public class CPU extends Player
         if (CPUauxTable[x-1][y] == 1)
         
         
-    }
+}
    
     
    
