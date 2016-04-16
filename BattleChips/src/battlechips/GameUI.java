@@ -10,7 +10,8 @@ public class GameUI extends javax.swing.JFrame {
     
     public int diffTemp = 1;
     public int diff = 1;
-    
+    private Dificuldade Dificuldade;
+    private Game_controler Jogo;
     
     
     
@@ -252,6 +253,11 @@ public class GameUI extends javax.swing.JFrame {
         jButton3.setMaximumSize(new java.awt.Dimension(219, 39));
         jButton3.setMinimumSize(new java.awt.Dimension(219, 39));
         jButton3.setPreferredSize(new java.awt.Dimension(219, 39));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -298,6 +304,8 @@ public class GameUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //jButton3.setIcon((new ImageIcon("src/resources/Settings.PNG")));
+        
+        Jogo = new Game_controler(Dificuldade);
        
               
         
@@ -363,6 +371,27 @@ public class GameUI extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         diff = diffTemp;
+        
+         if (diff == 1)
+        {
+           
+            Dificuldade = new Facil();
+        }
+        
+        else if (diff == 2)
+        {
+        
+             Dificuldade = new Normal();
+            
+        }
+        
+        else if (diff == 3)
+        {
+           
+            Dificuldade = new Dificil();
+            
+        }
+        
         jFrame1.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -370,6 +399,12 @@ public class GameUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         jFrame1.setVisible(false);
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+       
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
