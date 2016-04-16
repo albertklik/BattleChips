@@ -8,8 +8,8 @@ import javax.swing.ImageIcon;
 public class GameUI extends javax.swing.JFrame {
 
     
-    public int diffTemp = 0;
-    public int diff = 0;
+    public int diffTemp = 1;
+    public int diff = 1;
     
     
     
@@ -305,21 +305,21 @@ public class GameUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        if (diff == 0)
+        if (diff == 1)
         {
         jButton4.setIcon((new ImageIcon("src/resources/Easy_Selected.PNG")));
         jButton5.setIcon((new ImageIcon("src/resources/Medium_Unselected.PNG")));
         jButton6.setIcon((new ImageIcon("src/resources/Hard_Unselected.PNG")));
         }
         
-        else if (diff == 1)
+        else if (diff == 2)
         {
         jButton4.setIcon((new ImageIcon("src/resources/Easy_Unselected.PNG")));
         jButton5.setIcon((new ImageIcon("src/resources/Medium_Selected.PNG")));
         jButton6.setIcon((new ImageIcon("src/resources/Hard_Unselected.PNG")));
         }
         
-        else if (diff == 2)
+        else if (diff == 3)
         {
         jButton4.setIcon((new ImageIcon("src/resources/Easy_Unselected.PNG")));
         jButton5.setIcon((new ImageIcon("src/resources/Medium_Unselected.PNG")));
@@ -336,7 +336,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton5.setIcon((new ImageIcon("src/resources/Medium_Unselected.PNG")));
         jButton6.setIcon((new ImageIcon("src/resources/Hard_Unselected.PNG")));
         
-        diffTemp = 0;
+        diffTemp = 1;
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -346,7 +346,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton5.setIcon((new ImageIcon("src/resources/Medium_Selected.PNG")));
         jButton6.setIcon((new ImageIcon("src/resources/Hard_Unselected.PNG")));
         
-        diffTemp = 1;
+        diffTemp = 2;
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -356,7 +356,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton5.setIcon((new ImageIcon("src/resources/Medium_Unselected.PNG")));
         jButton6.setIcon((new ImageIcon("src/resources/Hard_Selected.PNG")));
         
-        diffTemp = 2;
+        diffTemp = 3;
         
     }//GEN-LAST:event_jButton6ActionPerformed
 
