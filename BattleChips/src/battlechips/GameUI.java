@@ -10,7 +10,7 @@ public class GameUI extends javax.swing.JFrame {
     
     public int diffTemp = 1;
     public int diff = 1;
-    private Dificuldade Dificuldade;
+    private Dificuldade Dificuldade = new Normal();
     private Game_controler Jogo;
     
     
@@ -390,7 +390,7 @@ public class GameUI extends javax.swing.JFrame {
            
             Dificuldade = new Dificil();
             
-        }
+        } 
         
         jFrame1.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
