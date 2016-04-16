@@ -25,17 +25,18 @@ public class Game_controler {
     public Game_controler(Dificuldade dif) {
         
     this.Dificuldade = dif;
-    
-    System.out.println(Dificuldade.N_CHIPS);
+        System.out.println("Jogo iniciado na dificuldade " + dif.DIFICULDADE);
     jog1 = new Player(1,Dificuldade);
     cpu = new CPU(2,Dificuldade);
     PartidaIniciada = false;
     
-    cpu.PosicionarChips();
-    
-    
-  
     }
+    
+    
+    public void CPUPosicionarChips() {
+        cpu.PosicionarChips();
+    }
+    
     
     public Player GetPlayer(int player) {
         if (player==1) {
@@ -44,20 +45,23 @@ public class Game_controler {
     }
     
      
-    public boolean setChipPlayer(int x,int y,int orientação,int tipoChip) {
+    public boolean setChipPlayer(int player, int x,int y,int orientação,int tipoChip) {
       
-      if (jog1.ChipsProntos()) 
+      Player p = GetPlayer(player);  
+        
+        
+      if (p.ChipsProntos()) 
       {
           System.out.println("o jogador ja posicionou todos os seus chips");
           return false;
       } else 
       {
-      if (jog1.getTable().VerificarBloco(x, y).getChipPiece()!=null) {
+      if (p.getTable().VerificarBloco(x, y).getChipPiece()!=null) {
           return false;
       }
       else
       {
-          jog1.getTable().InserirChip(orientação, x, y, tipoChip);
+          p.getTable().InserirChip(orientação, x, y, tipoChip);
           return true;
       }
         

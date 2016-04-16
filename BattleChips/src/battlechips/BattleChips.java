@@ -25,15 +25,34 @@ public class BattleChips {
         
         Player p = g.GetPlayer(1);
         while (!p.ChipsProntos()) {
-            g.setChipPlayer(p.getTable().getRandomPosition(), p.getTable().getRandomPosition(), 
+            g.setChipPlayer(1,p.getTable().getRandomPosition(), p.getTable().getRandomPosition(), 
                     p.getTable().getRandomOrientation(), 4);
         }
         
         
         g.GetPlayer(1).getTable().imprimeStatus();
         g.GetPlayer(2).getTable().imprimeStatus();
-            
         
+        
+        g.IiciarJogo();
+        g.Shoot(3, 4, 1);
+        
+         p = g.GetPlayer(2);
+        while (!p.ChipsProntos()) {
+            g.setChipPlayer(2,p.getTable().getRandomPosition(), p.getTable().getRandomPosition(), 
+                    p.getTable().getRandomOrientation(), 4);
+        }
+        
+        
+        g.GetPlayer(1).getTable().imprimeStatus();
+        g.GetPlayer(2).getTable().imprimeStatus();
+        
+        g.IiciarJogo();
+        
+        g.Shoot(3, 4, 1);
+        
+        g.GetPlayer(1).getTable().imprimeStatus();
+        g.GetPlayer(2).getTable().imprimeStatus();
     }
     
 }
