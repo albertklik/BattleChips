@@ -16,7 +16,7 @@ public class BattleChips {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Dificuldade d = new Normal();
+        Dificuldade d = new Dificil();
         
                 Game_controler g = new Game_controler(d);
         g.IiciarJogo();
