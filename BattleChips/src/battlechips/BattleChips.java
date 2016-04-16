@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package battlechips;
-
+import java.util.Scanner;
 /**
  *
  * @author paulo
@@ -16,12 +16,11 @@ public class BattleChips {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Dificuldade d = new Dificil();
+        Dificuldade d = new Facil();
         
                 Game_controler g = new Game_controler(d);
         g.IiciarJogo();
-        g.GetPlayer(1).getTable().imprimeStatus();
-        g.GetPlayer(2).getTable().imprimeStatus();
+        
         
         Player p = g.GetPlayer(1);
         
@@ -35,8 +34,7 @@ public class BattleChips {
         
         }
         
-        g.GetPlayer(1).getTable().imprimeStatus();
-        g.GetPlayer(2).getTable().imprimeStatus();
+       
         
         
         g.IiciarJogo();
@@ -54,15 +52,27 @@ public class BattleChips {
         }
         
         
-        g.GetPlayer(1).getTable().imprimeStatus();
-        g.GetPlayer(2).getTable().imprimeStatus();
+        
         
         g.IiciarJogo();
         
     
-        
-        g.GetPlayer(1).getTable().imprimeStatus();
         g.GetPlayer(2).getTable().imprimeStatus();
+        
+        Scanner s = new Scanner(System.in);
+        int x,y;
+        while (!g.ChecarFimDeJogo()) {
+            System.out.println("informe um valor para x e y");
+            int a = s.nextInt();
+            int b = s.nextInt();
+            g.PlayerShoot(a, b);
+            
+            g.CpuShoot();
+            
+            g.GetPlayer(2).getTable().imprimeStatus();
+            g.GetPlayer(1).getTable().imprimeStatus();
+        }
+        
     }
     
 }
