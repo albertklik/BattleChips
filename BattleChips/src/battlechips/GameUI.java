@@ -8,9 +8,10 @@ import javax.swing.ImageIcon;
 public class GameUI extends javax.swing.JFrame {
 
     
-    public int diffTemp = 0;
-    public int diff = 0;
-    
+    public int diffTemp = 1;
+    public int diff = 1;
+    private Dificuldade Dificuldade;
+    private Game_controler Jogo;
     
     
     
@@ -252,6 +253,11 @@ public class GameUI extends javax.swing.JFrame {
         jButton3.setMaximumSize(new java.awt.Dimension(219, 39));
         jButton3.setMinimumSize(new java.awt.Dimension(219, 39));
         jButton3.setPreferredSize(new java.awt.Dimension(219, 39));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -298,6 +304,8 @@ public class GameUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //jButton3.setIcon((new ImageIcon("src/resources/Settings.PNG")));
+        
+        Jogo = new Game_controler(Dificuldade);
        
               
         
@@ -305,21 +313,21 @@ public class GameUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        if (diff == 0)
+        if (diff == 1)
         {
         jButton4.setIcon((new ImageIcon("src/resources/Easy_Selected.PNG")));
         jButton5.setIcon((new ImageIcon("src/resources/Medium_Unselected.PNG")));
         jButton6.setIcon((new ImageIcon("src/resources/Hard_Unselected.PNG")));
         }
         
-        else if (diff == 1)
+        else if (diff == 2)
         {
         jButton4.setIcon((new ImageIcon("src/resources/Easy_Unselected.PNG")));
         jButton5.setIcon((new ImageIcon("src/resources/Medium_Selected.PNG")));
         jButton6.setIcon((new ImageIcon("src/resources/Hard_Unselected.PNG")));
         }
         
-        else if (diff == 2)
+        else if (diff == 3)
         {
         jButton4.setIcon((new ImageIcon("src/resources/Easy_Unselected.PNG")));
         jButton5.setIcon((new ImageIcon("src/resources/Medium_Unselected.PNG")));
@@ -336,7 +344,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton5.setIcon((new ImageIcon("src/resources/Medium_Unselected.PNG")));
         jButton6.setIcon((new ImageIcon("src/resources/Hard_Unselected.PNG")));
         
-        diffTemp = 0;
+        diffTemp = 1;
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -346,7 +354,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton5.setIcon((new ImageIcon("src/resources/Medium_Selected.PNG")));
         jButton6.setIcon((new ImageIcon("src/resources/Hard_Unselected.PNG")));
         
-        diffTemp = 1;
+        diffTemp = 2;
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -356,13 +364,34 @@ public class GameUI extends javax.swing.JFrame {
         jButton5.setIcon((new ImageIcon("src/resources/Medium_Unselected.PNG")));
         jButton6.setIcon((new ImageIcon("src/resources/Hard_Selected.PNG")));
         
-        diffTemp = 2;
+        diffTemp = 3;
         
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         diff = diffTemp;
+        
+         if (diff == 1)
+        {
+           
+            Dificuldade = new Facil();
+        }
+        
+        else if (diff == 2)
+        {
+        
+             Dificuldade = new Normal();
+            
+        }
+        
+        else if (diff == 3)
+        {
+           
+            Dificuldade = new Dificil();
+            
+        }
+        
         jFrame1.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -370,6 +399,12 @@ public class GameUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         jFrame1.setVisible(false);
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+       
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
