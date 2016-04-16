@@ -94,11 +94,13 @@ public class Game_controler {
            winner = cpu;
            fimDeJogo = true;
            PartidaIniciada = false;
+           System.out.println("fim de jogo! jogador perdeu");
        }
        if (cpu.getTable().chipsCrashed()>=cpu.getTable().getNChips()) {
            winner = jog1;
            fimDeJogo = true;
            PartidaIniciada = false;
+           System.out.println("fim de jogo! jogador ganhou");
        }
        return fimDeJogo;
    } 
