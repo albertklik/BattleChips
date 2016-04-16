@@ -21,8 +21,17 @@ public abstract class Dificuldade {
     public int N_CHIP3;
     public int N_CHIP4;
     
+    public int getNchipsTipo(int Tipo) {
+        if (Tipo == 1 ) return N_CHIP1;
+        else if (Tipo == 2) return N_CHIP2;
+        else if (Tipo == 3) return N_CHIP3;
+        else if (Tipo == 4) return N_CHIP4;
+        else return 0;
+        } 
+    
+    
+    }
+    
+    
+    
 
-    
-    
-    
-}

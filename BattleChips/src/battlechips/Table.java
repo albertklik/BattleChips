@@ -167,6 +167,16 @@ public class Table {
         return soma;
     }
     
+    public int getNichipsTipo (int tipo) {
+        int soma = 0;
+        for (int i = 0; i<n_chips; i++) {
+            if (Chips[i].getTipo()==tipo) {
+                soma++;
+            }
+        }
+        return soma;
+    }
+    
     //retorna o numero de Chips
     public int getNChips() {
         return n_chips;
