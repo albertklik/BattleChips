@@ -45,8 +45,8 @@ public class GameUI extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         SetPosition_Easy = new javax.swing.JFrame();
+        jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
@@ -110,6 +110,8 @@ public class GameUI extends javax.swing.JFrame {
         jButton70 = new javax.swing.JButton();
         jButton71 = new javax.swing.JButton();
         jButton72 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -260,13 +262,12 @@ public class GameUI extends javax.swing.JFrame {
         SetPosition_Easy.setPreferredSize(new java.awt.Dimension(584, 447));
         SetPosition_Easy.setResizable(false);
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.setBackground(new java.awt.Color(59, 174, 14));
+        jPanel5.setMaximumSize(new java.awt.Dimension(584, 447));
+        jPanel5.setMinimumSize(new java.awt.Dimension(584, 447));
+        jPanel5.setPreferredSize(new java.awt.Dimension(584, 447));
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
-        jButton9.setText("jButton9");
-        jButton9.setMaximumSize(new java.awt.Dimension(37, 37));
-        jButton9.setMinimumSize(new java.awt.Dimension(37, 37));
-        jButton9.setPreferredSize(new java.awt.Dimension(37, 37));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
         jButton10.setText("jButton9");
@@ -478,13 +479,13 @@ public class GameUI extends javax.swing.JFrame {
         jButton44.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton44.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Resistor_1.png"))); // NOI18N
         jButton45.setText("jButton9");
         jButton45.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton45.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton45.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Resistor_2.png"))); // NOI18N
         jButton46.setText("jButton9");
         jButton46.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton46.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -646,11 +647,18 @@ public class GameUI extends javax.swing.JFrame {
         jButton72.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton72.setPreferredSize(new java.awt.Dimension(37, 37));
 
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_button.png"))); // NOI18N
+        jButton9.setText("jButton9");
+        jButton9.setMaximumSize(new java.awt.Dimension(37, 37));
+        jButton9.setMinimumSize(new java.awt.Dimension(37, 37));
+        jButton9.setPreferredSize(new java.awt.Dimension(37, 37));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -783,14 +791,14 @@ public class GameUI extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -863,21 +871,41 @@ public class GameUI extends javax.swing.JFrame {
                     .addComponent(jButton57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/SetUpBoard.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(122, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
+        );
+
         javax.swing.GroupLayout SetPosition_EasyLayout = new javax.swing.GroupLayout(SetPosition_Easy.getContentPane());
         SetPosition_Easy.getContentPane().setLayout(SetPosition_EasyLayout);
         SetPosition_EasyLayout.setHorizontalGroup(
             SetPosition_EasyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SetPosition_EasyLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(256, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         SetPosition_EasyLayout.setVerticalGroup(
             SetPosition_EasyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SetPosition_EasyLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(116, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1212,10 +1240,12 @@ public class GameUI extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }
