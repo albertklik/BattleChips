@@ -34,7 +34,9 @@ public class Game_controler {
     
     
     public void CPUPosicionarChips() {
+        
         cpu.PosicionarChips();
+        System.out.println("CPU posicionou os seus Chips");
     }
     
     
@@ -44,7 +46,14 @@ public class Game_controler {
         } else return cpu;
     }
     
-     
+    //checa se existe espaço para posicionar um chip
+    public boolean checarEspaçoPlayer(int x, int y, int orientação, int tipochip) {
+        return jog1.getTable().espacosVazios(x, y, orientação, tipochip);
+    }
+    
+    
+    
+    //coloca um chip em uma posição no tabuleiro do player
     public boolean setChipPlayer(int player, int x,int y,int orientação,int tipoChip) {
       
       Player p = GetPlayer(player);  
@@ -52,10 +61,19 @@ public class Game_controler {
         
       if (p.ChipsProntos()) 
       {
-          System.out.println("o jogador ja posicionou todos os seus chips");
+          System.out.println("erro: o jogador ja posicionou todos os seus chips");
           return false;
-      } else 
+      } 
+      else 
       {
+          if (p.getTable().getNichipsTipo(tipoChip)>=Dificuldade.getNchipsTipo(tipoChip))
+          {
+              System.out.println("erro: Todos os chips do tipo " + tipoChip + " ja foram posicionados");
+              return false;
+          }
+          else {
+              
+          
       if (p.getTable().VerificarBloco(x, y).getChipPiece()!=null) {
           return false;
       }
@@ -66,19 +84,17 @@ public class Game_controler {
       }
         
       }  
+      }
     } 
     
     
-   public boolean Shoot (int x,int y,int player)
+   public boolean PlayerShoot(int x,int y)
    {       
        boolean acerto;
        if (PartidaIniciada==true) {
-        if (player==1) {
+        
             acerto = jog1.MakeShoot(x, y, cpu.getTable());      
-        } else
-        {
-            acerto = cpu.hunt(jog1.getTable());
-        } 
+        
        }
        else 
        {
@@ -90,6 +106,24 @@ public class Game_controler {
        return acerto;
        
        }
+   
+   public boolean CpuShoot() {
+       boolean acerto;
+       if (PartidaIniciada==true) {
+        
+                  acerto = cpu.hunt(jog1.getTable());
+        
+       }
+       else 
+       {
+           System.out.println("erro, partida não inciada");
+           return false;
+       }
+       
+       
+       
+       return acerto;
+   }
     
     
    public boolean ChecarFimDeJogo() {

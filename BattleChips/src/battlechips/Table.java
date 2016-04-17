@@ -167,6 +167,16 @@ public class Table {
         return soma;
     }
     
+    public int getNichipsTipo (int tipo) {
+        int soma = 0;
+        for (int i = 0; i<n_chips; i++) {
+            if (Chips[i].getTipo()==tipo) {
+                soma++;
+            }
+        }
+        return soma;
+    }
+    
     //retorna o numero de Chips
     public int getNChips() {
         return n_chips;
@@ -226,7 +236,7 @@ public int getRandomOrientation () {
                     if (Casas[i][j].getChipPiece().Iscrashed()) 
                     {
                         System.out.print("*");
-                    } else System.out.print(Casas[i][j].getChipPiece().getTipo());
+                    } else System.out.print(" ");
                 } else {
                     if (Casas[i][j].IsShot()) {
                         System.out.print("O");

@@ -2,6 +2,8 @@
  * CLASSE CPU
  * EXTENDE A CLASSE PLAYER
  * JOGADOR COM INTELIGENCIA ARTIFICIAL
+  a cpu é um player com técnicas de inteligencia para tomar decisões de 
+ jogo automaticamente
  */
 package battlechips;
 
@@ -31,17 +33,17 @@ public class CPU extends Player
         y = tabuleiro.getRandomPosition();
         boolean acerto = false;
         
-        while (CPUauxTable[x][y] ==0 || CPUauxTable[x][y] == 1)
+     /*   while (CPUauxTable[x][y] ==0 || CPUauxTable[x][y] == 1)
         {
             x = tabuleiro.getRandomPosition();
             y = tabuleiro.getRandomPosition();
         }    
-        acerto = adTable.Shoot(x,y);   
-        if (acerto == true)
+       */ acerto = adTable.Shoot(x,y);   
+       /* if (acerto == true)
             CPUauxTable[x][y] = 1;
         else
             CPUauxTable[x][y] = 0;
-            
+         */   
     return acerto;
     }
     
@@ -106,6 +108,7 @@ public class CPU extends Player
                 CPUauxTable[x][y-1] = 0;
         }
         
+<<<<<<< HEAD
         else if (CPUauxTable[x][y-1] == 1)
         {
             acerto = adTable.Shoot(x, y+1);
@@ -143,6 +146,16 @@ public class CPU extends Player
         }
         return acerto;
     }
+=======
+        if (CPUauxTable[x][y-1] ==1);
+        
+        if (CPUauxTable[x+1][y] == 1);
+        
+        if (CPUauxTable[x-1][y] == 1);
+        
+      return false;  
+}
+>>>>>>> origin/master
    
     /*Ok, seu merdinha, sabe que horas são? é hora de eu explicar a porra do código.
 Primeiro vc chama a função hunt, pra ele dar um tiro mais aleatório que o método como

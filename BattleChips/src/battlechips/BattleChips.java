@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package battlechips;
-
+import java.util.Scanner;
 /**
  *
  * @author paulo
@@ -16,43 +16,63 @@ public class BattleChips {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Dificuldade d = new Normal();
+        Dificuldade d = new Facil();
         
                 Game_controler g = new Game_controler(d);
         g.IiciarJogo();
-        g.GetPlayer(1).getTable().imprimeStatus();
-        g.GetPlayer(2).getTable().imprimeStatus();
+        
         
         Player p = g.GetPlayer(1);
-        while (!p.ChipsProntos()) {
+        
+        for (int i =1; i<=4; i++) {
+            
+        
+        while (!(p.getTable().getNichipsTipo(i)>=d.getNchipsTipo(i))) {
             g.setChipPlayer(1,p.getTable().getRandomPosition(), p.getTable().getRandomPosition(), 
-                    p.getTable().getRandomOrientation(), 4);
+                    p.getTable().getRandomOrientation(), i);
         }
         
+        }
         
-        g.GetPlayer(1).getTable().imprimeStatus();
-        g.GetPlayer(2).getTable().imprimeStatus();
+       
         
         
         g.IiciarJogo();
-        g.Shoot(3, 4, 1);
+      
         
          p = g.GetPlayer(2);
-        while (!p.ChipsProntos()) {
+         for (int i =1; i<=4; i++) {
+            
+        
+        while (!(p.getTable().getNichipsTipo(i)>=d.getNchipsTipo(i))) {
             g.setChipPlayer(2,p.getTable().getRandomPosition(), p.getTable().getRandomPosition(), 
-                    p.getTable().getRandomOrientation(), 4);
+                    p.getTable().getRandomOrientation(), i);
+        }
+        
         }
         
         
-        g.GetPlayer(1).getTable().imprimeStatus();
-        g.GetPlayer(2).getTable().imprimeStatus();
+        
         
         g.IiciarJogo();
         
-        g.Shoot(3, 4, 1);
-        
-        g.GetPlayer(1).getTable().imprimeStatus();
+    
         g.GetPlayer(2).getTable().imprimeStatus();
+        
+        Scanner s = new Scanner(System.in);
+        int x,y;
+        while (!g.ChecarFimDeJogo()) {
+            System.out.println("informe um valor para x e y");
+            int a = s.nextInt();
+            int b = s.nextInt();
+            g.PlayerShoot(a, b);
+            
+            g.CpuShoot();
+            
+            g.GetPlayer(2).getTable().imprimeStatus();
+            g.GetPlayer(1).getTable().imprimeStatus();
+        }
+        
     }
     
 }
