@@ -68,7 +68,7 @@ public class Game_controler {
       {
           if (p.getTable().getNichipsTipo(tipoChip)>=Dificuldade.getNchipsTipo(tipoChip))
           {
-              System.out.println("erro: Todos os chips do tipo " + tipoChip + "ja foram posicionados");
+              System.out.println("erro: Todos os chips do tipo " + tipoChip + " ja foram posicionados");
               return false;
           }
           else {

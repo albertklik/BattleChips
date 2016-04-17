@@ -15,11 +15,13 @@ public class Dificil extends Dificuldade {
         
         DIFICULDADE = 3;
         TABSIZE = 15;
-        N_CHIPS = N_CHIP1 + N_CHIP2 + N_CHIP3 + N_CHIP4;
+        
         N_CHIP1 = 6;
         N_CHIP2 = 9;
         N_CHIP3 = 5;
         N_CHIP4 = 3;
+        
+        N_CHIPS = N_CHIP1 + N_CHIP2 + N_CHIP3 + N_CHIP4;
         
         
         

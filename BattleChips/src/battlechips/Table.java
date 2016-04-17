@@ -236,7 +236,7 @@ public int getRandomOrientation () {
                     if (Casas[i][j].getChipPiece().Iscrashed()) 
                     {
                         System.out.print("*");
-                    } else System.out.print(Casas[i][j].getChipPiece().getTipo());
+                    } else System.out.print(" ");
                 } else {
                     if (Casas[i][j].IsShot()) {
                         System.out.print("O");
