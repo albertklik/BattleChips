@@ -105,18 +105,33 @@ public class Table {
     //função que remove um chip dada posição x,y;
     public boolean RemoveChip(int x, int y) {
         boolean result = false;
+        
+        
         if (VerificarBloco(x, y).getChipPiece()!=null) {
+           
+            //remover pedaços do tabuleiro
             Chip chipRemove = VerificarBloco(x, y).getChipPiece().getChip();
             for (int i = 0; i<chipRemove.getTipo(); i++) {
                 VerificarBloco(chipRemove.getPiece(i).getPosition(1), 
                         chipRemove.getPiece(i).getPosition(1)).SetChipPiece(null);
             }
-            int index = chipRemove.getIdent();
             
+            
+            //remove o chip da lista
+            int index = chipRemove.getIdent();
+            Chips[index-1] = null;
+            n_chips--;
+            
+            //realoca a array de chips
+            //for (i = index; )
+            
+            result = true;
             
         } else {
             System.out.println("erro: não tem nenum chip para remover");
         }
+        
+        return result;
     }
     
     
