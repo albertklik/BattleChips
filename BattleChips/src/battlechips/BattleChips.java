@@ -16,6 +16,25 @@ public class BattleChips {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Table T = new Table(new Facil());
+        T.InserirChip(2, 2, 2, 4);
+        
+        T.InserirChip(1, 3, 5, 4);
+        
+        T.imprimeStatus();
+        
+        T.RemoveChip(3, 7);
+        
+        T.imprimeStatus();
+        
+        T.InserirChip(2, 2, 7, 4);
+        
+        T.imprimeStatus();
+        
+        
+        
+        /*
         Dificuldade d = new Facil();
         
                 Game_controler g = new Game_controler(d);
@@ -71,8 +90,9 @@ public class BattleChips {
             
             g.GetPlayer(2).getTable().imprimeStatus();
             g.GetPlayer(1).getTable().imprimeStatus();
-        }
         
+                }
+        */
     }
     
 }
