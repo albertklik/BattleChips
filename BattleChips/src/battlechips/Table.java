@@ -16,10 +16,6 @@ public class Table {
     private Player Jogador;
     
     
-    public static final int FACIL = 8;  
-    public static final int MEDIO = 10;  
-    public static final int DIFICIL = 15;
-    
     public static final int VERTICAL = 2;
     public static final int HORIZONTAL= 1;
     
@@ -35,7 +31,7 @@ public class Table {
             }
         }
         
-        Chips = new Chip[50];
+        Chips = new Chip[dificuldade.N_CHIPS];
         
         n_chips = 0;
     }
@@ -69,7 +65,7 @@ public class Table {
                         Chips[n_chips-1] = chip;
                         for (int i = y; i<=(y+(tipo-1)); i++) {
                             j++;
-                            ChipPiece newchip = new ChipPiece(chip,j);
+                            ChipPiece newchip = new ChipPiece(chip,j,x,i);
                             chip.addPiece(newchip, newchip.getpedaço());
                             VerificarBloco(x,i).SetChipPiece(newchip);
                         }
@@ -87,7 +83,7 @@ public class Table {
                         Chips[n_chips-1] = chip;
                         for (int i = x; i<=(x+(tipo-1)); i++) {
                             j++;
-                            ChipPiece newchip = new ChipPiece(chip,j);
+                            ChipPiece newchip = new ChipPiece(chip,j,i,y);
                             chip.addPiece(newchip, newchip.getpedaço());
                             VerificarBloco(i,y).SetChipPiece(newchip);
                         }
@@ -103,6 +99,24 @@ public class Table {
                     
                 
             }      
+    }
+    
+    
+    //função que remove um chip dada posição x,y;
+    public boolean RemoveChip(int x, int y) {
+        boolean result = false;
+        if (VerificarBloco(x, y).getChipPiece()!=null) {
+            Chip chipRemove = VerificarBloco(x, y).getChipPiece().getChip();
+            for (int i = 0; i<chipRemove.getTipo(); i++) {
+                VerificarBloco(chipRemove.getPiece(i).getPosition(1), 
+                        chipRemove.getPiece(i).getPosition(1)).SetChipPiece(null);
+            }
+            int index = chipRemove.getIdent();
+            
+            
+        } else {
+            System.out.println("erro: não tem nenum chip para remover");
+        }
     }
     
     
