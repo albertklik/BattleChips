@@ -9,7 +9,7 @@ public class GameUI extends javax.swing.JFrame {
 
     
     public int diffTemp = 1;
-    public int diff = 1;
+    public int diff = 2;
     private Dificuldade Dificuldade = new Normal();
     private Game_controler Jogo;
     
@@ -275,7 +275,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton10.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton10.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Decoder_1_Vert.png"))); // NOI18N
         jButton11.setText("jButton9");
         jButton11.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton11.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -329,7 +329,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton19.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton19.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Decoder_2_Vert.png"))); // NOI18N
         jButton20.setText("jButton9");
         jButton20.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton20.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -347,7 +347,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton22.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton22.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Microcontroller_1_Vert.png"))); // NOI18N
         jButton23.setText("jButton9");
         jButton23.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton23.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -365,7 +365,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton25.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton25.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Resistor_1_Vert.png"))); // NOI18N
         jButton26.setText("jButton9");
         jButton26.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton26.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -377,7 +377,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton27.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton27.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Decoder_3_Vert.png"))); // NOI18N
         jButton28.setText("jButton9");
         jButton28.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton28.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -395,7 +395,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton30.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton30.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Microcontroller_2_Vert.png"))); // NOI18N
         jButton31.setText("jButton9");
         jButton31.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton31.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -413,7 +413,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton33.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton33.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Resistor_2_Vert.png"))); // NOI18N
         jButton34.setText("jButton9");
         jButton34.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton34.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -443,7 +443,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton38.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton38.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Microcontroller_3_Vert.png"))); // NOI18N
         jButton39.setText("jButton9");
         jButton39.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton39.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -491,7 +491,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton46.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton46.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Microcontroller_4_Vert.png"))); // NOI18N
         jButton47.setText("jButton9");
         jButton47.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton47.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -551,13 +551,13 @@ public class GameUI extends javax.swing.JFrame {
         jButton56.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton56.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Microcontroller_4.png"))); // NOI18N
         jButton57.setText("jButton9");
         jButton57.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton57.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton57.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Decoder_1.png"))); // NOI18N
         jButton58.setText("jButton9");
         jButton58.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton58.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -575,13 +575,13 @@ public class GameUI extends javax.swing.JFrame {
         jButton60.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton60.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Decoder_2.png"))); // NOI18N
         jButton61.setText("jButton9");
         jButton61.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton61.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton61.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Decoder_3.png"))); // NOI18N
         jButton62.setText("jButton9");
         jButton62.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton62.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -611,13 +611,13 @@ public class GameUI extends javax.swing.JFrame {
         jButton66.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton66.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton67.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton67.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Microcontroller_1.png"))); // NOI18N
         jButton67.setText("jButton9");
         jButton67.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton67.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton67.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton68.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton68.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Microcontroller_2.png"))); // NOI18N
         jButton68.setText("jButton9");
         jButton68.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton68.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -635,7 +635,7 @@ public class GameUI extends javax.swing.JFrame {
         jButton70.setMinimumSize(new java.awt.Dimension(37, 37));
         jButton70.setPreferredSize(new java.awt.Dimension(37, 37));
 
-        jButton71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png"))); // NOI18N
+        jButton71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_Microcontroller_3.png"))); // NOI18N
         jButton71.setText("jButton9");
         jButton71.setMaximumSize(new java.awt.Dimension(37, 37));
         jButton71.setMinimumSize(new java.awt.Dimension(37, 37));
@@ -658,7 +658,6 @@ public class GameUI extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

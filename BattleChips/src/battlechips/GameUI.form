@@ -339,7 +339,6 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="jButton9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="jButton10" min="-2" max="-2" attributes="0"/>
@@ -592,7 +591,7 @@
                 <Component class="javax.swing.JButton" name="jButton11">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Decoder_1_Vert.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -745,7 +744,7 @@
                 <Component class="javax.swing.JButton" name="jButton20">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Decoder_2_Vert.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -796,7 +795,7 @@
                 <Component class="javax.swing.JButton" name="jButton23">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Microcontroller_1_Vert.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -847,7 +846,7 @@
                 <Component class="javax.swing.JButton" name="jButton26">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Resistor_1_Vert.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -881,7 +880,7 @@
                 <Component class="javax.swing.JButton" name="jButton28">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Decoder_3_Vert.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -932,7 +931,7 @@
                 <Component class="javax.swing.JButton" name="jButton31">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Microcontroller_2_Vert.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -983,7 +982,7 @@
                 <Component class="javax.swing.JButton" name="jButton34">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Resistor_2_Vert.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1068,7 +1067,7 @@
                 <Component class="javax.swing.JButton" name="jButton39">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Microcontroller_3_Vert.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1204,7 +1203,7 @@
                 <Component class="javax.swing.JButton" name="jButton47">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Microcontroller_4_Vert.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1374,7 +1373,7 @@
                 <Component class="javax.swing.JButton" name="jButton57">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Microcontroller_4.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1391,7 +1390,7 @@
                 <Component class="javax.swing.JButton" name="jButton58">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Decoder_1.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1442,7 +1441,7 @@
                 <Component class="javax.swing.JButton" name="jButton61">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Decoder_2.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1459,7 +1458,7 @@
                 <Component class="javax.swing.JButton" name="jButton62">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Decoder_3.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1544,7 +1543,7 @@
                 <Component class="javax.swing.JButton" name="jButton67">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Microcontroller_1.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1561,7 +1560,7 @@
                 <Component class="javax.swing.JButton" name="jButton68">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Microcontroller_2.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1612,7 +1611,7 @@
                 <Component class="javax.swing.JButton" name="jButton71">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/resources/Default_BackgroundTile.png"/>
+                      <Image iconType="3" name="/resources/Chip_Microcontroller_3.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="jButton9"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
