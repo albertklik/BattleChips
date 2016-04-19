@@ -18,7 +18,7 @@ public class Chip {
     
     
     private final ChipPiece[] Pieces;
-    private final int numero;         //numero de identificação do chip
+    private int numero;         //numero de identificação do chip
     private final int tipo;
     private int n_Pieces;
     private boolean crashed;
@@ -38,6 +38,14 @@ public class Chip {
     
     public int getIdent() {
         return numero;
+    }
+    
+    public void setIdent(int ident) {
+        numero = ident;
+    }
+    
+    public ChipPiece getPiece(int index) {
+        return Pieces[index];
     }
     
     public void addPiece (ChipPiece piece, int position) {

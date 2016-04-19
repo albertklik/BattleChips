@@ -122,10 +122,16 @@ public class CPU extends Player
                 CPUauxTable[x][y-1] = 0;
                 AlreadyShot = true;
         }
+<<<<<<< HEAD
         }
         if(y!=0 && AlreadyShot == false)
         {
              if (CPUauxTable[x][y-1] == 1)
+=======
+        
+
+        else if (CPUauxTable[x][y-1] == 1)
+>>>>>>> origin/master
         {
             acerto = adTable.Shoot(x, y+1);
             if(acerto == true)
@@ -175,6 +181,7 @@ public class CPU extends Player
         return acerto;
     }
 
+<<<<<<< HEAD
        
 public void CPUturn() // Método principal da classe CPU. Executa uma jogada.
 {
@@ -212,6 +219,12 @@ public void CPUturn() // Método principal da classe CPU. Executa uma jogada.
     
     
 }   
+=======
+        
+
+
+   
+>>>>>>> origin/master
     /*Ok, seu merdinha, sabe que horas são? é hora de eu explicar a porra do código.
 Primeiro vc chama a função hunt, pra ele dar um tiro mais aleatório que o método como
 seus pais se conheceram, depois, SE ELE ACERTAR (note que ele retorna um boolean)

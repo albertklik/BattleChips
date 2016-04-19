@@ -12,12 +12,25 @@ package battlechips;
 public class ChipPiece {   
     private final Chip Chip;
     private final int pedaco;
-    private boolean crashed; 
+    private boolean crashed;
+    private final int []position = new int[2]; 
     
-    public ChipPiece (Chip chip, int pedaco) {
+    public ChipPiece (Chip chip, int pedaco,int x,int y) {
         this.Chip = chip;
         this.pedaco = pedaco;
         crashed = false;
+        position[1] = x;
+        position[2] = y;
+    }
+    
+    public int getPosition (int coord) {
+        if (coord == 1 ) return position[1];
+        else if (coord == 2 ) return position[2];
+        else return 0;
+    }
+    
+    public Chip getChip() {
+        return Chip;
     }
     
     public int getIdent() {
