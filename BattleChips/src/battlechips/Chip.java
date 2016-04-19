@@ -22,19 +22,25 @@ public class Chip {
     private final int tipo;
     private int n_Pieces;
     private boolean crashed;
+    private int Orientation;
     
      
     
-    public Chip(int tipo, int numero) {
+    public Chip(int orient,int tipo, int numero) {
         this.tipo = tipo;
         this.numero = numero;
-        
+        this.Orientation = orient;
         Pieces = new ChipPiece[tipo];
     }
     
     public int getTipo() {
         return tipo;
     }     
+    
+    public int getOrient() {
+        return Orientation;
+    }
+    
     
     public int getIdent() {
         return numero;

@@ -19,13 +19,18 @@ public class ChipPiece {
         this.Chip = chip;
         this.pedaco = pedaco;
         crashed = false;
-        position[1] = x;
-        position[2] = y;
+        position[0] = x;
+        position[1] = y;
     }
     
+    public int getOrient() {
+        return Chip.getOrient();
+    }
+    
+    
     public int getPosition (int coord) {
-        if (coord == 1 ) return position[1];
-        else if (coord == 2 ) return position[2];
+        if (coord == 1 ) return position[0];
+        else if (coord == 2 ) return position[1];
         else return 0;
     }
     

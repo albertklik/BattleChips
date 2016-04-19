@@ -24,6 +24,7 @@ public class Table {
         dificuldade = dif;
         //cria o tabuleiro com o tamanho de acordo com a dificuldade
         Casas = new Block[dificuldade.TABSIZE][dificuldade.TABSIZE];
+        
         //preencher a matriz com objetos blocs
         for (int i=1; i<=dificuldade.TABSIZE; i++) {
             for (int j=1; j<=dificuldade.TABSIZE; j++) {
@@ -31,8 +32,11 @@ public class Table {
             }
         }
         
+        
+        //cria a array de chips de acordo com o numero de chips permitido pelo nivel de dificuldade
         Chips = new Chip[dificuldade.N_CHIPS];
         
+        //inicia o número de Chips para 0;
         n_chips = 0;
     }
     
@@ -61,7 +65,7 @@ public class Table {
                     if (espacosVazios(x,y,orientacao,tipo)) {
                         n_chips ++;
                         int j = 0;
-                        Chip chip = new Chip(tipo,n_chips);
+                        Chip chip = new Chip(orientacao,tipo,n_chips);
                         Chips[n_chips-1] = chip;
                         for (int i = y; i<=(y+(tipo-1)); i++) {
                             j++;
@@ -79,7 +83,7 @@ public class Table {
                     if (espacosVazios(x,y,orientacao,tipo)) {
                         n_chips ++;
                         int j = 0;
-                        Chip chip = new Chip(tipo,n_chips);
+                        Chip chip = new Chip(orientacao,tipo,n_chips);
                         Chips[n_chips-1] = chip;
                         for (int i = x; i<=(x+(tipo-1)); i++) {
                             j++;
@@ -102,6 +106,8 @@ public class Table {
     }
     
     
+    
+    
     //função que remove um chip dada posição x,y;
     public boolean RemoveChip(int x, int y) {
         boolean result = false;
@@ -113,7 +119,7 @@ public class Table {
             Chip chipRemove = VerificarBloco(x, y).getChipPiece().getChip();
             for (int i = 0; i<chipRemove.getTipo(); i++) {
                 VerificarBloco(chipRemove.getPiece(i).getPosition(1), 
-                        chipRemove.getPiece(i).getPosition(1)).SetChipPiece(null);
+                        chipRemove.getPiece(i).getPosition(2)).removeChipPiece();
             }
             
             
@@ -123,7 +129,10 @@ public class Table {
             n_chips--;
             
             //realoca a array de chips
-            //for (i = index; )
+            for (int i = index; i<=n_chips; i++ ) {
+                Chips[i].setIdent(i);
+                Chips[i-1] = Chips[i];
+            }
             
             result = true;
             
@@ -237,6 +246,7 @@ public int getRandomPosition()
   return (int) ((Math.random() * (dificuldade.TABSIZE))+1);
 }
 
+//retorna orientação aleatoria
 public int getRandomOrientation () {
     return (int) (((Math.random() * 2)+1));
 }
@@ -265,7 +275,7 @@ public int getRandomOrientation () {
                     if (Casas[i][j].getChipPiece().Iscrashed()) 
                     {
                         System.out.print("*");
-                    } else System.out.print(" ");
+                    } else System.out.print(Casas[i][j].getChipPiece().getIdent());
                 } else {
                     if (Casas[i][j].IsShot()) {
                         System.out.print("O");
