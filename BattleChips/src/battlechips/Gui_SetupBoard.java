@@ -18,7 +18,7 @@ import javax.swing.JFrame;
  *
  * @author berto
  */
-public class Setup_JFrame extends JFrame  {
+public class Gui_SetupBoard extends JFrame  {
     
     
     private Game_controler jogo;
@@ -31,7 +31,7 @@ public class Setup_JFrame extends JFrame  {
     private Table tabAux; 
             
             
-    public Setup_JFrame (Game_controler jogo) {
+    public Gui_SetupBoard (Game_controler jogo) {
         
         
         this.jogo = jogo;
@@ -105,6 +105,8 @@ public class Setup_JFrame extends JFrame  {
              b.setMaximumSize(new java.awt.Dimension(30, 30));
              b.setMinimumSize(new java.awt.Dimension(30, 30));
              b.setPreferredSize(new java.awt.Dimension(30, 30));
+             b.setFocusable(false);
+             
              b.setText("button");
              
              casas[i][j].addMouseListener(new java.awt.event.MouseListener() {

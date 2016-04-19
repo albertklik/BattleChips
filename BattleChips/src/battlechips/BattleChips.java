@@ -11,14 +11,14 @@ import javax.swing.JFrame;
  * @author paulo
  */
 public class BattleChips {
- public static Setup_JFrame j;
+ public static Gui_SetupBoard j;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
        
-         j = new Setup_JFrame(new Game_controler(new Facil()));
+         j = new Gui_SetupBoard(new Game_controler(new Facil()));
         j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         
