@@ -178,7 +178,7 @@ public class CPU extends Player
 
 
        
-public void CPUturn() // Método principal da classe CPU. Executa uma jogada.
+public void CPUturn(Table adTable) // Método principal da classe CPU. Executa uma jogada.
 {
     boolean jogada = false;
     for (int x = 0;x <= dificuldade.TABSIZE;x++)
@@ -188,14 +188,14 @@ public void CPUturn() // Método principal da classe CPU. Executa uma jogada.
            
             if (CPUauxTable[x][y] == 1 || jogada == false)
             {
-               destroy(x,y,tabuleiro);
-               if(CheckAround(x,y,tabuleiro)==1);
-               tabuleiro.Shoot(x,y);
+               destroy(x,y,adTable);
+               if(CheckAround(x,y,adTable)==1);
+               adTable.Shoot(x,y);
                jogada = true;
             }
             else if (jogada == false)
             {
-                hunt(tabuleiro);
+                hunt(adTable);
                 jogada = true;
             }
         }

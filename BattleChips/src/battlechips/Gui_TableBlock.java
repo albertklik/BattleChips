@@ -62,13 +62,13 @@ public class Gui_TableBlock extends javax.swing.JButton {
         
         
          
-        setIcon(reSize(BlockDefault));
+       // setIcon(reSize(BlockDefault));
         
     }
     
     
     public void setIconChip(int tipo, int orient) {
-        if (tipo == )
+        //if (tipo == )
        
     }
     

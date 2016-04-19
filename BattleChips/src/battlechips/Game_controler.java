@@ -111,22 +111,22 @@ public class Game_controler {
        
        }
    
-   public boolean CpuShoot() {
-       boolean acerto;
+   public void CpuShoot() {
+      // boolean acerto;
        if (PartidaIniciada==true) {
         
-                  acerto = cpu.hunt(jog1.getTable());
+                  cpu.CPUturn(jog1.getTable());
         
        }
        else 
        {
            System.out.println("erro, partida não inciada");
-           return false;
+           //return false;
        }
        
        
        
-       return acerto;
+       //return acerto;
    }
     
     
