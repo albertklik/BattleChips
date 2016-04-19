@@ -37,6 +37,10 @@ public class Block {
         return Shot;
     }
     
+    public void removeChipPiece() {
+        this.Chip = null;
+    }
+    
     public void SetChipPiece (ChipPiece Chip) {
         if (this.Chip==null) {
             this.Chip = Chip;

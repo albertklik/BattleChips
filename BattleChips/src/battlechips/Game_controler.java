@@ -32,6 +32,10 @@ public class Game_controler {
     
     }
     
+    public Dificuldade getDificuldade() {
+        return Dificuldade;
+    }
+    
     
     public void CPUPosicionarChips() {
         
