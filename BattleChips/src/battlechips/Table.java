@@ -65,7 +65,7 @@ public class Table {
                     if (espacosVazios(x,y,orientacao,tipo)) {
                         n_chips ++;
                         int j = 0;
-                        Chip chip = new Chip(tipo,n_chips);
+                        Chip chip = new Chip(orientacao,tipo,n_chips);
                         Chips[n_chips-1] = chip;
                         for (int i = y; i<=(y+(tipo-1)); i++) {
                             j++;
@@ -83,7 +83,7 @@ public class Table {
                     if (espacosVazios(x,y,orientacao,tipo)) {
                         n_chips ++;
                         int j = 0;
-                        Chip chip = new Chip(tipo,n_chips);
+                        Chip chip = new Chip(orientacao,tipo,n_chips);
                         Chips[n_chips-1] = chip;
                         for (int i = x; i<=(x+(tipo-1)); i++) {
                             j++;

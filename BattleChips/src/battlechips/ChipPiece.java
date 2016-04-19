@@ -23,6 +23,11 @@ public class ChipPiece {
         position[1] = y;
     }
     
+    public int getOrient() {
+        return Chip.getOrient();
+    }
+    
+    
     public int getPosition (int coord) {
         if (coord == 1 ) return position[0];
         else if (coord == 2 ) return position[1];
