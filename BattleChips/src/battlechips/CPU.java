@@ -1,4 +1,5 @@
 /*
+ *  GABRIEL QUE FEZ :D
  * CLASSE CPU
  * EXTENDE A CLASSE PLAYER
  * JOGADOR COM INTELIGENCIA ARTIFICIAL
@@ -33,17 +34,17 @@ public class CPU extends Player
         y = tabuleiro.getRandomPosition();
         boolean acerto = false;
         
-     /*   while (CPUauxTable[x][y] ==0 || CPUauxTable[x][y] == 1)
+        while (CPUauxTable[x][y] ==0 || CPUauxTable[x][y] == 1)
         {
             x = tabuleiro.getRandomPosition();
             y = tabuleiro.getRandomPosition();
         }    
-       */ acerto = adTable.Shoot(x,y);   
-       /* if (acerto == true)
+        acerto = adTable.Shoot(x,y);   
+       if (acerto == true)
             CPUauxTable[x][y] = 1;
         else
             CPUauxTable[x][y] = 0;
-         */   
+           
     return acerto;
     }
     
@@ -52,39 +53,48 @@ public class CPU extends Player
         return super.getTable().VerificarBloco(x,y).getChipPiece().getTipo() == 1;
     }
     
-    public boolean CheckAround(int x,int y,Table adTable) //verifica as casas ao redor, para ver se estão disponíveis
+      //verifica as casas ao redor, para ver se estão disponíveis, então atira em uma
+    public int CheckAround(int x,int y,Table adTable) 
     {   
         if (ChecarBotão() == false)
-        {
-            if (CPUauxTable[x][y+1] != 0)
+        {   
+            aux = 0;
+            if (CPUauxTable[x][y+1] != 0 && y != dificuldade.TABSIZE)
             aux1 = 1;
-            if (CPUauxTable[x][y-1] != 0)
+            if (CPUauxTable[x][y-1] != 0 && y != 0)
             aux2 = 2;
-            if (CPUauxTable[x+1][y] != 0)
+            if (CPUauxTable[x+1][y] != 0  && x != dificuldade.TABSIZE)
             aux3 = 3;
-            if (CPUauxTable[x-1][y] != 0)
+            if (CPUauxTable[x-1][y] != 0 && x != 0)
             aux4 = 4;
         }
         while (aux == 0 || aux != aux1 && aux != aux2 && aux != aux3 && aux != aux4)
         { 
             aux = rand.nextInt(4)+1;
         }
+        int somethingthere = 0; 
         if(aux == aux1)
+        {
             y++;
+        somethingthere = 1;
+        }
         else if(aux == aux2)
+        {
             y--;
+        somethingthere = 1;
+        }
         else if(aux == aux3)
+        {
             x++;
+        somethingthere = 1;
+        }
         else if(aux == aux4)
+        {
             x--;
+        somethingthere = 1;
+        }
         
-        boolean acerto = adTable.Shoot(x,y);   
-        if (acerto == true)
-            CPUauxTable[x][y] = 1;
-        else
-            CPUauxTable[x][y] = 0;
-            
-        return acerto;
+        return somethingthere;
     }
         
     
@@ -93,9 +103,12 @@ public class CPU extends Player
     
    //tiro no chip = 1; tiro na água = 0;
     public boolean destroy(int x,int y,Table adTable)
-    {         
+    {   boolean AlreadyShot = false;      
         boolean acerto = false;
-        if (CPUauxTable[x][y+1] == 1)
+        
+        if(y!=dificuldade.TABSIZE && AlreadyShot == false)
+        {
+        if (CPUauxTable[x][y+1] == 1 )
         {
             acerto = adTable.Shoot(x,y-1);
              
@@ -103,60 +116,102 @@ public class CPU extends Player
             {
                 CPUauxTable[x][y-1] = 1;
                 y--;
+                AlreadyShot = true;
             }    
             else
                 CPUauxTable[x][y-1] = 0;
+                AlreadyShot = true;
         }
-        
-<<<<<<< HEAD
-        else if (CPUauxTable[x][y-1] == 1)
+        }
+        if(y!=0 && AlreadyShot == false)
+        {
+             if (CPUauxTable[x][y-1] == 1)
         {
             acerto = adTable.Shoot(x, y+1);
             if(acerto == true)
             {
                 CPUauxTable[x][y+1] = 1;
                 y++;
+                AlreadyShot = true;
             }
             else
                 CPUauxTable[x][y+1] = 0;
+                AlreadyShot = true;
         }
-        
-        else if (CPUauxTable[x+1][y] == 1)
+        }
+        if(x!=dificuldade.TABSIZE && AlreadyShot == false)
         {
+            if (CPUauxTable[x+1][y] == 1)
+            {
             acerto = adTable.Shoot(x+1,y);
             if(acerto == true)
             {
                 CPUauxTable[x-1][y] = 1;
                 x++;
+                AlreadyShot = true;
             }
             else
                 CPUauxTable[x-1][y] = 0;
+                AlreadyShot = true;
+            }
         }
-       
-        else if (CPUauxTable[x-1][y] == 1)
+        if(x!=0 && AlreadyShot == false)
+        {
+         if (CPUauxTable[x-1][y] == 1)
         {
             acerto = adTable.Shoot(x-1, y);
             if (acerto == true)
             {
                 CPUauxTable[x+1][y] = 1;
                 x--;
+                AlreadyShot = true;
             }
             else
                 CPUauxTable[x+1][y] = 0;
+                AlreadyShot = true;
         }
+        }
+         
         return acerto;
     }
-=======
-        if (CPUauxTable[x][y-1] ==1);
-        
-        if (CPUauxTable[x+1][y] == 1);
-        
-        if (CPUauxTable[x-1][y] == 1);
-        
-      return false;  
-}
->>>>>>> origin/master
-   
+
+       
+public void CPUturn() // Método principal da classe CPU. Executa uma jogada.
+{
+    boolean jogada = false;
+    for (int x = 0;x <= dificuldade.TABSIZE;x++)
+    {
+        for(int y = 0; y <= dificuldade.TABSIZE;y++)
+        {   
+           
+            if (CPUauxTable[x][y] == 1 || jogada == false)
+            {
+               destroy(x,y,tabuleiro);
+               if(CheckAround(x,y,tabuleiro)==1);
+               tabuleiro.Shoot(x,y);
+               jogada = true;
+            }
+            else if (jogada == false)
+            {
+                hunt(tabuleiro);
+                jogada = true;
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}   
     /*Ok, seu merdinha, sabe que horas são? é hora de eu explicar a porra do código.
 Primeiro vc chama a função hunt, pra ele dar um tiro mais aleatório que o método como
 seus pais se conheceram, depois, SE ELE ACERTAR (note que ele retorna um boolean)
