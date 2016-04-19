@@ -5,18 +5,27 @@
  */
 package battlechips;
 import java.util.Scanner;
+import javax.swing.JFrame;
 /**
  *
  * @author paulo
  */
 public class BattleChips {
-
+ public static Setup_JFrame j;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+       
+         j = new Setup_JFrame(new Game_controler(new Facil()));
+        j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        
+        
+        
+        
+        /* 
         Table T = new Table(new Facil());
         T.InserirChip(2, 2, 2, 4);
         
@@ -93,6 +102,9 @@ public class BattleChips {
         
                 }
         */
+   
+    
+    
     }
     
 }
