@@ -59,14 +59,26 @@ public class CPU extends Player
         if (ChecarBotão() == false)
         {   
             aux = 0;
-            if (CPUauxTable[x][y+1] != 0 && y != dificuldade.TABSIZE)
+            if( y != dificuldade.TABSIZE )
+            {
+            if (CPUauxTable[x][y+1] != 0)
             aux1 = 1;
-            if (CPUauxTable[x][y-1] != 0 && y != 0)
+            }
+            if (y != 0)
+            {
+            if (CPUauxTable[x][y-1] != 0)
             aux2 = 2;
-            if (CPUauxTable[x+1][y] != 0  && x != dificuldade.TABSIZE)
+            }
+            if (x != dificuldade.TABSIZE)
+            {
+            if (CPUauxTable[x+1][y] != 0 )
             aux3 = 3;
-            if (CPUauxTable[x-1][y] != 0 && x != 0)
+            }
+            if(x != 0)
+            {
+            if (CPUauxTable[x-1][y] != 0 )
             aux4 = 4;
+            }
         }
         while (aux == 0 || aux != aux1 && aux != aux2 && aux != aux3 && aux != aux4)
         { 
@@ -106,9 +118,9 @@ public class CPU extends Player
     {   boolean AlreadyShot = false;      
         boolean acerto = false;
         
-        if(y!=dificuldade.TABSIZE && AlreadyShot == false)
+        if(y!=dificuldade.TABSIZE && AlreadyShot == false )
         {
-        if (CPUauxTable[x][y+1] == 1 )
+        if (CPUauxTable[x][y+1] == 1 && y!= 0)
         {
             acerto = adTable.Shoot(x,y-1);
              
@@ -125,7 +137,7 @@ public class CPU extends Player
         }
         if(y!=0 && AlreadyShot == false)
         {
-             if (CPUauxTable[x][y-1] == 1)
+            if (CPUauxTable[x][y-1] == 1 && y!= dificuldade.TABSIZE)
 
         {
             acerto = adTable.Shoot(x, y+1);
@@ -142,7 +154,7 @@ public class CPU extends Player
         }
         if(x!=dificuldade.TABSIZE && AlreadyShot == false)
         {
-            if (CPUauxTable[x+1][y] == 1)
+            if (CPUauxTable[x+1][y] == 1 && x!= 0)
             {
             acerto = adTable.Shoot(x+1,y);
             if(acerto == true)
@@ -158,7 +170,7 @@ public class CPU extends Player
         }
         if(x!=0 && AlreadyShot == false)
         {
-         if (CPUauxTable[x-1][y] == 1)
+         if (CPUauxTable[x-1][y] == 1 && x!= dificuldade.TABSIZE)
         {
             acerto = adTable.Shoot(x-1, y);
             if (acerto == true)
