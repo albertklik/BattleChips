@@ -10,5 +10,5 @@ import javax.swing.ImageIcon;
  * @author berto
  */
 public class r {
-    public static ImageIcon BlockDefault = new ImageIcon("/resources/Default_BackgroundTile.png");
+    public static ImageIcon BlockDefault = new ImageIcon("/resources/Default_BackgroundTile_final.png");
 }

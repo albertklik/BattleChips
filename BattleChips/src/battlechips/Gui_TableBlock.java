@@ -7,8 +7,6 @@ package battlechips;
 
 import javax.swing.ImageIcon;
 import java.awt.Image;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
 /**
  *
@@ -19,6 +17,9 @@ public class Gui_TableBlock extends javax.swing.JButton {
     private int position[] = new int[2];
     private int Size;
     private int orient;
+    
+    
+    public ImageIcon Icons[][] = new ImageIcon[5][2]; 
     
     
     
@@ -33,8 +34,24 @@ public class Gui_TableBlock extends javax.swing.JButton {
         initComponent();
     }
     
+    public int getPosition (int pos) {
+        if (pos == 1 ) return position[0];
+        else if (pos == 2 ) return position[1];
+        else return 0;
+    }
+    
     
     public void initComponent() {
+        
+        
+        //inicia as imagens de icone
+        Icons[0][0] = Icons[0][1] = new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile_final.png"));
+        Icons[1][0] = new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile_final.png"));
+        Icons[1][1] = new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile_final.png"));
+        Icons[2][0] = new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile_final.png"));
+        Icons[1][0] = new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile_final.png"));
+        
+        
         
         java.awt.Dimension Bsize = new java.awt.Dimension(Size, Size);
         setSize(Bsize);
@@ -45,12 +62,13 @@ public class Gui_TableBlock extends javax.swing.JButton {
         
         
          
-        setIcon(reSize(resources.r.BlockDefault));
+        setIcon(reSize(BlockDefault));
         
     }
     
     
     public void setIconChip(int tipo, int orient) {
+        if (tipo == )
        
     }
     

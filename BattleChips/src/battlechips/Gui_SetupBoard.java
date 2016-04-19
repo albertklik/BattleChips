@@ -100,16 +100,10 @@ public class Gui_SetupBoard extends JFrame  {
          for (int j = 0; j<jogo.getDificuldade().TABSIZE; j++) {
              
              
-             JButton b = casas[i][j] = new JButton();
-             b.setSize(30, 30);
-             b.setMaximumSize(new java.awt.Dimension(30, 30));
-             b.setMinimumSize(new java.awt.Dimension(30, 30));
-             b.setPreferredSize(new java.awt.Dimension(30, 30));
-             b.setFocusable(false);
+             JButton b = casas[i][j] = new Gui_TableBlock(i,j,30);
              
-             b.setText("button");
              
-             casas[i][j].addMouseListener(new java.awt.event.MouseListener() {
+             b.addMouseListener(new java.awt.event.MouseListener() {
 
                  
 
@@ -142,8 +136,8 @@ public class Gui_SetupBoard extends JFrame  {
              }
              );
              
-             casas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png")));
-             tabuleiro.add(casas[i][j]);
+             
+             tabuleiro.add(b);
              
              
          }
