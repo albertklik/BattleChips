@@ -22,22 +22,23 @@ public class Gui_SetupBoard extends JFrame  {
     
     
     private Game_controler jogo;
-    
-    //criação do array de paineis;
     private JPanel PainelPrincipal;
     private JPanel tabuleiro;
-    private Gui_TableBlock casas[][];
+    private Gui_TableBlock casas[][]; //criação do array de paineis;
     private int OrientationSet;
     private int TipoChipSet;
     private JLabel titulo; 
     private Table tabAux; 
     private Dificuldade Dificuldade;
+    private Chip ChipTemp;
             
-            
+    //CONSTRUTOR        
     public Gui_SetupBoard (Game_controler jogo) {
         
         
         this.jogo = jogo;
+        OrientationSet = 1;
+        TipoChipSet = 4;
         Dificuldade = jogo.getDificuldade();
         casas = new Gui_TableBlock[Dificuldade.TABSIZE][Dificuldade.TABSIZE];
         tabAux = new Table(Dificuldade);
@@ -46,14 +47,13 @@ public class Gui_SetupBoard extends JFrame  {
     }        
     
     
-    
+    //inicia o componente
     private void InitComponents() {
         
         PainelPrincipal = new JPanel();
         tabuleiro = new JPanel();
         titulo = new JLabel();
-        OrientationSet = 1;
-        TipoChipSet = 2;
+        
         
         
 
@@ -114,17 +114,17 @@ public class Gui_SetupBoard extends JFrame  {
 
                  @Override
                  public void mouseClicked(MouseEvent e) {
-                     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                     ButtonClick(e);
                  }
 
                  @Override
                  public void mousePressed(MouseEvent e) {
-                     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                     //do nothing
                  }
 
                  @Override
                  public void mouseReleased(MouseEvent e) {
-                     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                     //do nothing
                  }
 
                  @Override
@@ -163,6 +163,7 @@ public class Gui_SetupBoard extends JFrame  {
     }
     
     
+    //atualiza o Grid de Blocos
     private void UpdateTableFocus(int x, int y) {
         //alternancia de linha
         
@@ -191,13 +192,61 @@ public class Gui_SetupBoard extends JFrame  {
     
     }
     
+    //é acionado quando detecta o click do botão no bloco
+    private void ButtonClick (java.awt.event.MouseEvent evt) {
+        
+        //recebe o botão que acionou o evento
+        Gui_TableBlock block = (Gui_TableBlock) evt.getSource();
+        
+        //recebe o bloco da mesma posição
+        Block bloco = tabAux.VerificarBloco(block.getPosition(1), block.getPosition(2));
+        
+         
+      
+        //verificar se tem um chip no local
+         
+         //verifica se o chip não foi o que eu acabei de colocar
+         
+         
+        if (bloco.getChipPiece()!=null) {
+            if (bloco.getChipPiece().getChip()!=ChipTemp) {
+            //pega o tipo do chip e seta para o tipo selecionado
+            TipoChipSet = bloco.getChipPiece().getTipo();
+            OrientationSet = bloco.getChipPiece().getOrient();
+            //cadastra o chip como temporario;
+            ChipTemp = bloco.getChipPiece().getChip();
+            //atualiza a linha
+            UpdateTableFocus(block.getPosition(1),block.getPosition(2));
+             
+            
+             
+             tabAux.imprimeStatus();
+         
+            
+        } else  ChipTemp=null;
+         } 
+        
+        
+       
+        
+       
+            
+        
+        
+        
+    }
     
     private void ButtonFocusGained (java.awt.event.MouseEvent evt) {
         
          Gui_TableBlock block = (Gui_TableBlock) evt.getSource();
          
+         
+         
+         //verifica se o maximo de chip foi atingido
+         
          if (tabAux.espacosVazios(block.getPosition(1), block.getPosition(2), OrientationSet , TipoChipSet)) {
              tabAux.InserirChip( OrientationSet ,block.getPosition(1), block.getPosition(2), TipoChipSet );
+             ChipTemp = tabAux.VerificarBloco(block.getPosition(1), block.getPosition(2)).getChipPiece().getChip();
              UpdateTableFocus(block.getPosition(1),block.getPosition(2));
              tabAux.imprimeStatus();
          }
@@ -207,12 +256,17 @@ public class Gui_SetupBoard extends JFrame  {
     
     private void ButtonFocusLost (java.awt.event.MouseEvent evt) {
         Gui_TableBlock block = (Gui_TableBlock) evt.getSource();
-        
-        if (tabAux.VerificarBloco(block.getPosition(1), block.getPosition(2))!=null) {
+        ChipPiece c = tabAux.VerificarBloco(block.getPosition(1), block.getPosition(2)).getChipPiece();
+        if (c!=null) {
+            
+            if (c.getChip()==ChipTemp) {
              tabAux.RemoveChip(block.getPosition(1), block.getPosition(2));
              UpdateTableFocus(block.getPosition(1),block.getPosition(2));
              tabAux.imprimeStatus();
-         }
+         
+            }
+        
+        }
          
     }
 
