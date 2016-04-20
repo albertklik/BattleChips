@@ -18,7 +18,7 @@ public class BattleChips {
     public static void main(String[] args) {
         // TODO code application logic here
        
-         j = new Gui_SetupBoard(new Game_controler(new Facil()));
+         j = new Gui_SetupBoard(new Game_controler(new Normal()));
         j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         

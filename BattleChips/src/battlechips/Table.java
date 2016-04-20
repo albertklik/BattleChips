@@ -17,7 +17,7 @@ public class Table {
     
     
     public static final int VERTICAL = 2;
-    public static final int HORIZONTAL= 1;
+    public static final int HORIZONTAL = 1;
     
     //MÉTODO CONSTRUTOR
     public Table (Dificuldade dif) {
