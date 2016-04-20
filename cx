@@ -1,0 +1,75 @@
+[1mdiff --cc BattleChips/src/battlechips/BattleChips.java[m
+[1mindex 8398e09,5742e9e..0000000[m
+[1m--- a/BattleChips/src/battlechips/BattleChips.java[m
+[1m+++ b/BattleChips/src/battlechips/BattleChips.java[m
+[36m@@@ -18,8 -18,8 +18,13 @@@[m [mpublic class BattleChips [m
+      public static void main(String[] args) {[m
+          // TODO code application logic here[m
+         [m
+[31m-          j = new Gui_SetupBoard(new Game_controler(new Normal()));[m
+[31m -       //  j = new Gui_SetupBoard(new Game_controler(new Facil()));[m
+[31m -       // j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);[m
+[32m++[m
+[32m++         j = new Gui_SetupBoard(new Game_controler(new Facil()));[m
+[32m +        j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);[m
+[32m++[m
+[32m++      j = new Gui_SetupBoard(new Game_controler(new Facil()));[m
+[32m++      j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);[m
+[32m++[m
+          [m
+          [m
+          [m
+[36m@@@ -43,7 -43,7 +48,7 @@@[m
+          [m
+          [m
+          [m
+[31m-         /*[m
+[31m -        */[m
+[32m++        [m
+          Dificuldade d = new Facil();[m
+          [m
+                  Game_controler g = new Game_controler(d);[m
+[36m@@@ -101,10 -101,10 +106,10 @@@[m
+              g.GetPlayer(1).getTable().imprimeStatus();[m
+          [m
+                  }[m
+[31m-         */[m
+[32m+         [m
+     [m
+      [m
+[31m--    [m
+[32m++    */[m
+      }[m
+      [m
+  }[m
+[1mdiff --cc BattleChips/src/battlechips/Gui_TableBlock.java[m
+[1mindex 3ea8423,d75b611..0000000[m
+[1m--- a/BattleChips/src/battlechips/Gui_TableBlock.java[m
+[1m+++ b/BattleChips/src/battlechips/Gui_TableBlock.java[m
+[36m@@@ -79,16 -61,15 +79,25 @@@[m [mpublic class Gui_TableBlock extends jav[m
+          setFocusable(false);[m
+          [m
+          [m
+[32m +        [m
+           [m
+[32m++[m
+[32m +        setIcon(reSize(Icons[0][0]));[m
+[32m++[m
+[32m+        // setIcon(reSize(BlockDefault));[m
+[32m++[m
+          [m
+      }[m
+      [m
+      [m
+[32m++[m
+[32m +    public void setIconChip(int tipo, int orient, int Piece) {[m
+[32m +        if (orient == 2) tipo = tipo+4;[m
+[31m-         setIcon(reSize(Icons[tipo][Piece]));[m
+[32m++[m
+[32m+     public void setIconChip(int tipo, int orient) {[m
+[32m+         //if (tipo == )[m
+[32m+        [m
+[32m++[m
+      }[m
+      [m
+      [m
