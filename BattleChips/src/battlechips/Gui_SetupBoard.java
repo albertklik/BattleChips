@@ -26,17 +26,21 @@ public class Gui_SetupBoard extends JFrame  {
     //criação do array de paineis;
     private JPanel PainelPrincipal;
     private JPanel tabuleiro;
-    private JButton casas[][];
+    private Gui_TableBlock casas[][];
+    private int OrientationSet;
+    private int TipoChipSet;
     private JLabel titulo; 
     private Table tabAux; 
+    private Dificuldade Dificuldade;
             
             
     public Gui_SetupBoard (Game_controler jogo) {
         
         
         this.jogo = jogo;
-        casas = new JButton[jogo.getDificuldade().TABSIZE][jogo.getDificuldade().TABSIZE];
-        tabAux = new Table(jogo.getDificuldade());
+        Dificuldade = jogo.getDificuldade();
+        casas = new Gui_TableBlock[Dificuldade.TABSIZE][Dificuldade.TABSIZE];
+        tabAux = new Table(Dificuldade);
         InitComponents();
     
     }        
@@ -48,7 +52,8 @@ public class Gui_SetupBoard extends JFrame  {
         PainelPrincipal = new JPanel();
         tabuleiro = new JPanel();
         titulo = new JLabel();
-        
+        OrientationSet = 1;
+        TipoChipSet = 2;
         
         
 
@@ -100,7 +105,7 @@ public class Gui_SetupBoard extends JFrame  {
          for (int j = 0; j<jogo.getDificuldade().TABSIZE; j++) {
              
              
-             JButton b = casas[i][j] = new Gui_TableBlock(i,j,30);
+             JButton b = casas[i][j] = new Gui_TableBlock(i+1,j+1,30);
              
              
              b.addMouseListener(new java.awt.event.MouseListener() {
@@ -158,18 +163,57 @@ public class Gui_SetupBoard extends JFrame  {
     }
     
     
+    private void UpdateTableFocus(int x, int y) {
+        //alternancia de linha
+        
+        System.out.println(" " + x + " " + y);
+        for (int i = 0; i<=Dificuldade.TABSIZE; i++) {
+         
+         
+         //alterncanci de coluna
+             if (OrientationSet==1) {
+                 y = i;
+             } else x = i;
+                 
+             if (tabAux.VerificarBloco(x,y)!=null) {
+             if (tabAux.VerificarBloco(x,y).getChipPiece()!=null) {
+                 ChipPiece chip = tabAux.VerificarBloco(x,y).getChipPiece();
+                 casas[x-1][y-1].setIconChip(chip.getTipo(),chip.getOrient(),chip.getpedaço());
+             } else {
+                 casas[x-1][y-1].setIconChip(0,0,0);
+             }
+             
+             }
+             
+             
+            
+        }
     
+    }
     
     
     private void ButtonFocusGained (java.awt.event.MouseEvent evt) {
-         JButton button = (JButton) evt.getSource();
-         button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Chip_button.png")));
         
+         Gui_TableBlock block = (Gui_TableBlock) evt.getSource();
+         
+         if (tabAux.espacosVazios(block.getPosition(1), block.getPosition(2), OrientationSet , TipoChipSet)) {
+             tabAux.InserirChip( OrientationSet ,block.getPosition(1), block.getPosition(2), TipoChipSet );
+             UpdateTableFocus(block.getPosition(1),block.getPosition(2));
+             tabAux.imprimeStatus();
+         }
+         
+         
     }
     
     private void ButtonFocusLost (java.awt.event.MouseEvent evt) {
-        JButton button = (JButton) evt.getSource();
-         button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Default_BackgroundTile.png")));
+        Gui_TableBlock block = (Gui_TableBlock) evt.getSource();
+        
+        if (tabAux.VerificarBloco(block.getPosition(1), block.getPosition(2))!=null) {
+             tabAux.RemoveChip(block.getPosition(1), block.getPosition(2));
+             UpdateTableFocus(block.getPosition(1),block.getPosition(2));
+             tabAux.imprimeStatus();
+         }
+         
     }
 
     
