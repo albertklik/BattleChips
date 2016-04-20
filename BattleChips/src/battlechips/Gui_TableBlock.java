@@ -77,7 +77,7 @@ public class Gui_TableBlock extends javax.swing.JButton {
         setMinimumSize(Bsize);
         setPreferredSize(Bsize);
         setFocusable(false);
-        
+        setBorderPainted(false);
         
         
          
