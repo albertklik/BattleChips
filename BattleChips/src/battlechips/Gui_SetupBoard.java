@@ -22,15 +22,31 @@ public class Gui_SetupBoard extends JFrame  {
     
     
     private Game_controler jogo;
-    private JPanel PainelPrincipal;
-    private JPanel tabuleiro;
-    private Gui_TableBlock casas[][]; //criação do array de paineis;
+    
+    
     private int OrientationSet;
     private int TipoChipSet;
-    private JLabel titulo; 
-    private Table tabAux; 
     private Dificuldade Dificuldade;
     private Chip ChipTemp;
+    private Table tabAux;
+    
+    
+    //itens de GUI
+    private Gui_TableBlock casas[][]; //criação do array de paineis;
+    private JLabel titulo;  
+    private JPanel PainelPrincipal;
+    private JPanel tabuleiro;
+    private JLabel TextoInic;
+    private JLabel X;
+    private JLabel nButtons;
+    private JLabel nResist;
+    private JLabel nDecod;
+    private JLabel nMicro;
+    private JPanel imgBotao;
+    private JPanel imgResist;
+    private JPanel imgDecod;
+    private JPanel imgMicro;
+    
             
     //CONSTRUTOR        
     public Gui_SetupBoard (Game_controler jogo) {
@@ -38,7 +54,7 @@ public class Gui_SetupBoard extends JFrame  {
         
         this.jogo = jogo;
         OrientationSet = 1;
-        TipoChipSet = 4;
+        TipoChipSet = 3;
         Dificuldade = jogo.getDificuldade();
         casas = new Gui_TableBlock[Dificuldade.TABSIZE][Dificuldade.TABSIZE];
         tabAux = new Table(Dificuldade);
@@ -50,44 +66,26 @@ public class Gui_SetupBoard extends JFrame  {
     //inicia o componente
     private void InitComponents() {
         
+        
+        
+        
+        
+        
+        //painel principal criação
         PainelPrincipal = new JPanel();
-        tabuleiro = new JPanel();
-        titulo = new JLabel();
-        
-        
-        
-
         PainelPrincipal.setBackground(new java.awt.Color(59, 174, 14));
         //PainelPrincipal.setSize(new java.awt.Dimension(584, 447));
         
-
         
         
-        
-        
+        //titulo criação
+        titulo = new JLabel();
         titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/SetUpBoard.png"))); // NOI18N
         
 
-        java.awt.BorderLayout painelLayout = new java.awt.BorderLayout(10,10);
-        PainelPrincipal.setLayout(painelLayout);
-        PainelPrincipal.add(titulo,BorderLayout.NORTH);
-        JPanel painel = new JPanel();
-        painel.setLayout(new java.awt.FlowLayout());
-        painel.setBackground(new java.awt.Color(59, 174, 14));
-                
-                
-                painel.add(tabuleiro, BorderLayout.CENTER);
-                
-                
-        PainelPrincipal.add(painel,BorderLayout.EAST);
         
-        
-        
-        
-
-        
-        
-        
+        //criação tabuleiro
+        tabuleiro = new JPanel();
         tabuleiro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         java.awt.Dimension d = new java.awt.Dimension((jogo.getDificuldade().TABSIZE*30)+5, (jogo.getDificuldade().TABSIZE*30)+5);
         tabuleiro.setSize(d);
@@ -153,12 +151,23 @@ public class Gui_SetupBoard extends JFrame  {
      }
        //inicialização de componentes
        setSize(800,tabuleiro.getHeight()+100);
+       
+       
+        //definição layout painel principal
+        java.awt.BorderLayout painelLayout = new java.awt.BorderLayout(10,10);
+        PainelPrincipal.setLayout(painelLayout);
+        PainelPrincipal.add(titulo,BorderLayout.NORTH);
+        JPanel painel = new JPanel();
+        painel.setLayout(new java.awt.FlowLayout());
+        painel.setBackground(new java.awt.Color(59, 174, 14));
+        painel.add(tabuleiro, BorderLayout.CENTER);      
+        PainelPrincipal.add(painel,BorderLayout.EAST);
         
         //setResizable(false);
         setVisible(true);
         javax.swing.GroupLayout SetPosition_EasyLayout = new javax.swing.GroupLayout(getContentPane());
         setResizable(false);
-       setContentPane(PainelPrincipal);
+        setContentPane(PainelPrincipal);
         
     }
     
