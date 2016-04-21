@@ -277,7 +277,7 @@ public class Gui_SetupBoard extends JFrame  {
         IniciarJogo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         IniciarJogo.setBorderPainted(false);
         IniciarJogo.setContentAreaFilled(false);
-        IniciarJogo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        IniciarJogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         IniciarJogo.setMaximumSize(new java.awt.Dimension(219, 39));
         IniciarJogo.setMinimumSize(new java.awt.Dimension(219, 39));
         IniciarJogo.setPreferredSize(new java.awt.Dimension(219, 39));
@@ -294,17 +294,9 @@ public class Gui_SetupBoard extends JFrame  {
         tabuleiro.setSize(d);
         java.awt.GridLayout TabLayout = new java.awt.GridLayout(jogo.getDificuldade().TABSIZE,jogo.getDificuldade().TABSIZE);
         tabuleiro.setLayout(TabLayout);
-
         
-        //alternancia de linha
-        for (int i = 0; i<jogo.getDificuldade().TABSIZE; i++) {  
-         //alterncanci de coluna
-         for (int j = 0; j<jogo.getDificuldade().TABSIZE; j++) {
-             
-             JButton b = casas[i][j] = new Gui_TableBlock(i+1,j+1,30);
-             b.addMouseListener(new java.awt.event.MouseListener() {
-
-                 
+        
+        java.awt.event.MouseListener blockListener = new java.awt.event.MouseListener() {
 
                  @Override
                  public void mouseClicked(MouseEvent e) {
@@ -332,7 +324,15 @@ public class Gui_SetupBoard extends JFrame  {
                  }
              
              
-             } );
+             } ;
+        
+        //alternancia de linha
+        for (int i = 0; i<jogo.getDificuldade().TABSIZE; i++) {  
+         //alterncanci de coluna
+         for (int j = 0; j<jogo.getDificuldade().TABSIZE; j++) {
+             
+             JButton b = casas[i][j] = new Gui_TableBlock(i+1,j+1,30);
+             b.addMouseListener(blockListener);
              tabuleiro.add(b);
 
          }       
@@ -449,7 +449,7 @@ public class Gui_SetupBoard extends JFrame  {
                 .addGap(37, 37, 37))
         );
         
-        //setResizable(false);
+        setResizable(false);
         setVisible(true);
         javax.swing.GroupLayout SetPosition_EasyLayout = new javax.swing.GroupLayout(getContentPane());
         setResizable(false);
@@ -558,20 +558,34 @@ public class Gui_SetupBoard extends JFrame  {
    //atualiza os botões de ação
    private void updateButtons() {
        
+       Table tabjog = jogo.GetPlayer(1).getTable();
        
-       if (nButtonRest+nResistRest+nDecodRest+nMicroRest==0) {
+       if ((nButtonRest+nResistRest+nDecodRest+nMicroRest==0)&&(tabjog.getNChips()!=Dificuldade.N_CHIPS)) {
            salvar.setEnabled(true);
        } else salvar.setEnabled(false);
        
-       if (tabAux.getNChips()==Dificuldade.N_CHIPS) {
+       if (tabjog.getNChips()==Dificuldade.N_CHIPS) {
            IniciarJogo.setEnabled(true);
        } else IniciarJogo.setEnabled(false);
        
-       if (tabAux.getNChips()==Dificuldade.N_CHIPS) {
+       if (tabjog.getNChips()==Dificuldade.N_CHIPS) {
            editar.setEnabled(true);
        } else editar.setEnabled(false);
        
        
+   }
+   
+   //disableTable
+   private void TableEnabled(boolean enabled) {
+       for (int i = 0; i<jogo.getDificuldade().TABSIZE; i++) {  
+         //alterncanci de coluna
+         for (int j = 0; j<jogo.getDificuldade().TABSIZE; j++) {
+             
+             JButton b = casas[i][j];
+             b.setEnabled(enabled);
+   
+         }
+       }
    }
    
    
@@ -590,11 +604,10 @@ public class Gui_SetupBoard extends JFrame  {
         //recebe o bloco da mesma posição
         Block bloco = tabAux.VerificarBloco(block.getPosition(1), block.getPosition(2));
       
-        
-        
+        //clicou com o lado Esquerdo
+        if((evt.getModifiers() & java.awt.event.MouseEvent.BUTTON1_MASK) != 0) {
          
-         
-         
+             
          //verificar se tem um chip no local
         if (bloco.getChipPiece()!=null) {
             
@@ -610,7 +623,7 @@ public class Gui_SetupBoard extends JFrame  {
             updateNumChipPanels();
             //atualiza a linha
             UpdateTableFocus(block.getPosition(1),block.getPosition(2));
-             
+             updateImgChips();
             
              
              tabAux.imprimeStatus();
@@ -625,6 +638,55 @@ public class Gui_SetupBoard extends JFrame  {
             
             
          } 
+        
+            
+        } //clicou com o lado direito
+          else if((evt.getModifiers() & java.awt.event.MouseEvent.BUTTON3_MASK) != 0) {
+              
+          ChipPiece c = tabAux.VerificarBloco(block.getPosition(1), block.getPosition(2)).getChipPiece();
+              //se tiver algum chip na casa
+          if (c!=null) {
+               
+                //se o chip for temporario
+                if (c.getChip()==ChipTemp) {
+              
+        
+                //remove o chip
+               
+            
+                 
+                  tabAux.RemoveChip(block.getPosition(1), block.getPosition(2));
+                  UpdateTableFocus(block.getPosition(1),block.getPosition(2));
+                  
+                  
+                  //troca a orientação
+                  if (OrientationSet == 1)
+                  OrientationSet = 2;
+                  else OrientationSet = 1;
+                  
+                  //adiciona novo chip se tiver espaço
+                  if (tabAux.espacosVazios(block.getPosition(1), block.getPosition(2), OrientationSet , TipoChipSet)) {
+                  tabAux.InserirChip( OrientationSet ,block.getPosition(1), block.getPosition(2), TipoChipSet );
+                  ChipTemp = tabAux.VerificarBloco(block.getPosition(1), block.getPosition(2)).getChipPiece().getChip();
+                  UpdateTableFocus(block.getPosition(1),block.getPosition(2));
+                  tabAux.imprimeStatus();
+         }
+                  
+        
+               }
+              
+              
+              
+          
+              
+              
+              
+              
+          }
+          }
+        
+         
+         
         
   
        
@@ -704,29 +766,52 @@ public class Gui_SetupBoard extends JFrame  {
    }
 
 
-   //é acionado quando o botão editar é ckicado
+   //é acionado quando o botão editar é clicado
     private void editarClicado (java.awt.event.ActionEvent evt) {
-        
+        Table GameTable = jogo.GetPlayer(1).getTable();
+        for (int i=0; i<Dificuldade.N_CHIPS; i++ ) {
+           Chip ChipMove = tabAux.getChip(i);
+           GameTable.RemoveChip(ChipMove.getPiece(0).getPosition(1), 
+                   ChipMove.getPiece(0).getPosition(2));
+           
+           
+           
+             
+     }
+        updateButtons();
+        TableEnabled(true);
     }
     
      private void salvarClicado (java.awt.event.ActionEvent evt) {
         
          Table GameTable = jogo.GetPlayer(1).getTable();
          
-         for (int i=1; i<=Dificuldade.N_CHIPS; i++ ) {
-         
-             
+         for (int i=0; i<Dificuldade.N_CHIPS; i++ ) {
+           Chip ChipMove = tabAux.getChip(i);
+           GameTable.InserirChip(ChipMove.getOrient(), 
+                   ChipMove.getPiece(0).getPosition(1), 
+                   ChipMove.getPiece(0).getPosition(2),
+                   ChipMove.getTipo());
+           
+           
+           
+           
+            
              
      }
          
+         updateButtons();
          
-         
-         
+       TableEnabled(false);  
          
     }
      
       
     private void iniciarJogoClicado (java.awt.event.ActionEvent evt) {
+        
+        jogo.CPUPosicionarChips();
+        jogo.IiciarJogo();
+        setVisible(false);
         
     }
     

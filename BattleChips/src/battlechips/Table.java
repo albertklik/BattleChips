@@ -215,6 +215,10 @@ public class Table {
         return soma;
     }
     
+    public Chip getChip(int index) {
+        return Chips[index];
+    }
+    
     //retorna o numero de Chips
     public int getNChips() {
         return n_chips;
