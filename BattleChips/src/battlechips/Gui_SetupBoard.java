@@ -450,11 +450,13 @@ public class Gui_SetupBoard extends JFrame  {
         );
         
         setResizable(false);
-        setVisible(true);
+        
         javax.swing.GroupLayout SetPosition_EasyLayout = new javax.swing.GroupLayout(getContentPane());
         setResizable(false);
         setContentPane(PainelPrincipal);
         updateButtons();
+        
+        setVisible(true);
     }
     
     

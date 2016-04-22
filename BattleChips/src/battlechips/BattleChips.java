@@ -42,7 +42,7 @@ public class BattleChips {
         
         
         
-        /*
+        */
         Dificuldade d = new Facil();
         
                 Game_controler g = new Game_controler(d);
@@ -100,7 +100,7 @@ public class BattleChips {
             g.GetPlayer(1).getTable().imprimeStatus();
         
                 }
-        */
+        
    
     
     

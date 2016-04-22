@@ -13,12 +13,7 @@ import java.util.Random;
 
 public class CPU extends Player 
 {
-    //construtor que construteia
-    public CPU(int id, Dificuldade dificuldade) 
-    {
-        super(id, dificuldade);
-        this.tabuleiro = new Table(super.dificuldade);
-    }
+    
   
     //variáveis que vareiam
     int x,y;
@@ -27,30 +22,176 @@ public class CPU extends Player
     Table cpuTable = new Table(dificuldade);
     int CPUauxTable[][] = new int[dificuldade.TABSIZE][dificuldade.TABSIZE];
     Random rand = new Random();
+    Table adTable;
+    boolean lastHit = false;
+    int NumConssecHits;
+    int DificultyLevel;
+    int OrientationShots;
+    int direction;
+    boolean outroLado;
     
-    public boolean hunt(Table adTable)
+    
+    
+    
+    //construtor que construteia
+    public CPU(int id, Dificuldade dificuldade) 
     {
+        super(id, dificuldade);
+        this.tabuleiro = new Table(super.dificuldade);
+        DificultyLevel = 2;
+        
+    }
+    
+    
+    
+    private void updateRandom() {
         x = tabuleiro.getRandomPosition();
         y = tabuleiro.getRandomPosition();
+    }
+    
+    private boolean TemChip(int a,int b) {
+        return (adTable.VerificarBloco(a, b).getChipPiece()!=null);
+    }
+    
+    private boolean hunt(int verifications)
+    {
         boolean acerto = false;
         
-        while (CPUauxTable[x][y] ==0 || CPUauxTable[x][y] == 1)
-        {
-            x = tabuleiro.getRandomPosition();
-            y = tabuleiro.getRandomPosition();
-        }    
-        acerto = adTable.Shoot(x,y);   
-       if (acerto == true)
-            CPUauxTable[x][y] = 1;
-        else
-            CPUauxTable[x][y] = 0;
-           
-    return acerto;
+        for (int i=0; i<verifications; i++) {
+            updateRandom(); 
+            boolean check = TemChip(x,y);
+            if (check==true) {
+                acerto = adTable.Shoot(x,y);
+                break;
+            }
+        }
+        
+        if (acerto==false) {
+            acerto = adTable.Shoot(x,y);
+        }
+        
+        return acerto;
     }
+    
+    private boolean SideShoot() {
+        int a=0,b=0;
+        int sort; 
+        boolean tiroFeito=false;
+             
+                   
+        while (tiroFeito==false) {      
+        sort = (int) ((Math.random() * (4))+1);
+            System.out.println(sort);
+        //sorteia uma das 4 direções para verificar
+        
+        switch (sort) {
+        
+            case 1: 
+                if (x!=dificuldade.TABSIZE) {
+                a=x+1; b=y;
+                
+                if (!adTable.VerificarBloco(a, b).IsShot()) tiroFeito=true;
+                direction=1;
+                OrientationShots=2;
+                }
+                break;
+            case 2: 
+                if (x!=1) {
+                a=x-1; b=y;
+                if (!adTable.VerificarBloco(a, b).IsShot()) tiroFeito=true;
+                direction=-1;
+                OrientationShots=2;
+                }
+                break;
+            case 3: 
+                if (y!=dificuldade.TABSIZE) {
+                a=x; b=y+1;
+                if (!adTable.VerificarBloco(a, b).IsShot()) tiroFeito=true;
+                direction=+1;
+                OrientationShots=1;
+                }
+                break;
+            case 4: 
+                if (y!=1) {
+                a=x; b=y-1;
+                if (!adTable.VerificarBloco(a, b).IsShot()) tiroFeito=true;
+                direction=-1;
+                OrientationShots=1;
+                }
+                break;    
+                
+        }
+        }
+        
+        x=a;
+        y=b;
+        return adTable.Shoot(a,b);
+          
+    }
+    
+    
+     private boolean LineShoot1() {
+        int a=0,b=0;
+        int sort; 
+        boolean tiroFeito=false;
+            
+                   
+        while (tiroFeito==false) {      
+        sort = (int) ((Math.random() * (2))+1);
+            System.out.println(sort);
+        //sorteia uma das 4 direções para verificar
+            int range;
+            if (direction>0) {
+                range = 2;
+            } else range = 1;
+            
+        
+        switch (sort) {
+        
+            case 1:   
+                if (OrientationShots==2) {
+                    if (x!=(dificuldade.TABSIZE-1)) {
+                        a=x+range;b=y;
+                        if (!adTable.VerificarBloco(a, b).IsShot()) tiroFeito=true;
+                    }
+                } else {
+                    if (y!=(dificuldade.TABSIZE-1)) {    
+                        a=x; b=y+range;
+                        if (!adTable.VerificarBloco(a, b).IsShot()) tiroFeito=true;
+                    }
+                }
+                break;
+            case 2: 
+                if (OrientationShots==24
+                        ) {
+                    if (x!=2) {
+                        a=x-range;b=y;
+                        if (!adTable.VerificarBloco(a, b).IsShot()) tiroFeito=true;
+                    }
+                } else {
+                    if (y!=2) {    
+                        a=x; b=y-range;
+                        if (!adTable.VerificarBloco(a, b).IsShot()) tiroFeito=true;
+                    }
+                }
+                break;        
+        }
+        }
+        
+        x=a;
+        y=b;
+        return adTable.Shoot(a,b);
+          
+    }
+    
+    
+    
+    
+    
     
     public boolean ChecarBotão() //checa se é um botão, duh
     {
-        return super.getTable().VerificarBloco(x,y).getChipPiece().getTipo() == 1;
+        return adTable.VerificarBloco(x,y).getChipPiece().getTipo() == 1;
     }
     
       //verifica as casas ao redor, para ver se estão disponíveis, então atira em uma
@@ -190,27 +331,117 @@ public class CPU extends Player
 
 
        
-public void CPUturn(Table adTable) // Método principal da classe CPU. Executa uma jogada.
+public void CPUturn(Table advTable) // Método principal da classe CPU. Executa uma jogada.
 {
     boolean jogada = false;
-    for (int x = 0;x <= dificuldade.TABSIZE;x++)
-    {
-        for(int y = 0; y <= dificuldade.TABSIZE;y++)
-        {   
+    this.adTable = advTable;
+    
+    if (NumConssecHits>0) {
+        
+        //verificar se não é um botão
+        if (adTable.VerificarBloco(x, y).getChipPiece()!=null&&adTable.VerificarBloco(x, y).getChipPiece().getTipo() != 1) {
+            System.out.println("Não é um botão");
+            
+        //    if (NumConssecHits>1) { 
+            
+                //pode ser um micro controlador ou um microprocessador
+                //tentar mais um tiro nas laterais
+                
+              //  if (NumConssecHits>2) {
+                    
+                    
+                    //temos três acertos consecutivos e o chip ainda não morreu
+                    //só pode ser o microchip
+                    
+                    
+                    
+                    
+                    
+           /*     } else  {
+                    
+                    boolean Hit = LineShoot1();
+                    if (Hit==true) {
+                        if (adTable.VerificarBloco(x, y).getChipPiece().getChip().checkCrached()) {
+                          //é um Decoder
+                        NumConssecHits = 0;
+                        }else{
+                            
+                            //não é um decoder
+                        NumConssecHits++;
+                        }
+                    
+                    } 
+                    
+                } 
+               
+            */
+            
+            
+            
+            
+       //     } else {
+            
+             
+            boolean Hit = SideShoot();
+            if (Hit==true) {
+                if (adTable.VerificarBloco(x, y).getChipPiece().getChip().checkCrached()) {
+                    System.out.println("É um resistor");
+                    //é um resistor
+                    NumConssecHits = 0;
+                }else{
+                NumConssecHits++;
+                }
+            } else {
+            
+            //outroLado = true;
+            
+            
+            }
+            
+            
+                
+               
+                
+                
+                
            
-            if (CPUauxTable[x][y] == 1 || jogada == false)
-            {
-               destroy(x,y,adTable);
-               if(CheckAround(x,y,adTable)==1);
-               adTable.Shoot(x,y);
-               jogada = true;
+            
+        //    }
+
+            
+        } else {
+            
+            System.out.println("É um Botão");
+            NumConssecHits=0;
+            
+            //outro tiro aleatorio
+            boolean Hit=hunt(DificultyLevel);
+            if (Hit==true) {
+                NumConssecHits++;
+                
             }
-            else if (jogada == false)
-            {
-                hunt(adTable);
-                jogada = true;
-            }
+            
+            
+            
         }
+        
+    } else
+    { 
+       
+            //tiro aleatorio
+            Boolean Hit=hunt(DificultyLevel);
+            if (Hit==true) {
+                NumConssecHits++;
+            }
+    }
+    
+    
+
+    System.out.println("Numero consec de acertos" + NumConssecHits);
+    
+    
+    
+    
     }
     
     
@@ -225,7 +456,7 @@ public void CPUturn(Table adTable) // Método principal da classe CPU. Executa u
     
     
     
-}   
+
 
 
     /*Ok, seu merdinha, sabe que horas são? é hora de eu explicar a porra do código.
@@ -247,8 +478,15 @@ algo ou não e aí vai fodendo marcar na porra da tabelinha da metelança.
     public void PosicionarChips() 
     {
         
+        for (int i =1; i<=4; i++) {
         //adicionar peças no tabuleiro;
-        super.getTable().InserirChip(0, 0, 0, 0);
+        while (!(super.getTable().getNichipsTipo(i)>=dificuldade.getNchipsTipo(i))) {
+            super.getTable().InserirChip(super.getTable().getRandomOrientation(),super.getTable()
+                    .getRandomPosition(),super.getTable().getRandomPosition(), 
+                     i);
+        }
+        
+        }
         
         
     }
