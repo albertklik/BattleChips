@@ -450,7 +450,6 @@ public class Gui_SetupBoard extends JFrame  {
         );
         
         setResizable(false);
-        
         javax.swing.GroupLayout SetPosition_EasyLayout = new javax.swing.GroupLayout(getContentPane());
         setResizable(false);
         setContentPane(PainelPrincipal);
@@ -676,26 +675,12 @@ public class Gui_SetupBoard extends JFrame  {
                   
         
                }
-              
-              
-              
-          
-              
-              
-              
-              
+        
           }
           }
-        
-         
-         
-        
-  
        
             updateButtons();
-        
-        
-        
+       
     }
     
     //é acionado quando um bloco ganha foco
